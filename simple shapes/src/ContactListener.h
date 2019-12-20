@@ -2,7 +2,7 @@
 #define CONTACTLISTENER_H
 #include<Box2D/Box2D.h>
 
-//neka struktura za info o kontaktnim tockama
+//struktura za info o kontaktnim tockama
 struct ContactPoint{
     b2Vec2 position;
     b2PointState state;
@@ -14,7 +14,7 @@ class ContactListener : public b2ContactListener
 
 public:
     int m_pointCount;
-    ContactPoint m_points[10000];
+    ContactPoint m_points[300];
 
 
    //override begin i end contact funkcije kako bi prikazali odgovor na koliziju

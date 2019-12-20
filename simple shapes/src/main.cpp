@@ -15,9 +15,9 @@
 #include <typeinfo>
 #include <vector>
 
-#define TIMESTEP 1.0f/60.0f     // Refresh time
+#define TIMESTEP 1.0f/80.0f     // Refresh time
 #define VELITER 8              // iterations per tick to calculate speed -> standardno 8
-#define POSITER 7              // iterations to calculate the position -> standardno 3
+#define POSITER 3              // iterations to calculate the position -> standardno 3
 
 #define WIDTH 800
 #define HEIGHT 600
@@ -100,15 +100,15 @@ int main()
     showInstructions();
 
     // Define world Box2D - Zero gravity
-    b2World m_world(b2Vec2(0.f, 0.f));
+    b2World m_world(b2Vec2(0.f, 9.81f));
 
     std::vector<Shape* > m_vectorShapes;
 
     // Create walls - static bodies
-    m_vectorShapes.push_back(new Rectangle(400.f, 0.f, sf::Vector2f(800.f, 1.f), m_world));
-    m_vectorShapes.push_back(new Rectangle(400.f, 600.f, sf::Vector2f(800.f, 1.f), m_world));
-    m_vectorShapes.push_back(new Rectangle(0.f, 300.f, sf::Vector2f(1.f, 800.f), m_world));
-    m_vectorShapes.push_back(new Rectangle(800.f, 300.f, sf::Vector2f(1.f, 800.f), m_world));
+    m_vectorShapes.push_back(new Rectangle(400.f, 1.f, sf::Vector2f(800.f, 15.f), m_world));
+    m_vectorShapes.push_back(new Rectangle(400.f, 600.f, sf::Vector2f(800.f, 15.f), m_world));
+    m_vectorShapes.push_back(new Rectangle(1.f, 300.f, sf::Vector2f(15.f, 800.f), m_world));
+    m_vectorShapes.push_back(new Rectangle(800.f, 300.f, sf::Vector2f(15.f, 800.f), m_world));
 
     sf::ContextSettings settings;
     settings.antialiasingLevel = 8;
@@ -174,26 +174,14 @@ int main()
                     if(debugDraw.GetFlags() & b2Draw::e_shapeBit) debugDraw.ClearFlags(b2Draw::e_shapeBit);
                     else debugDraw.AppendFlags(b2Draw::e_shapeBit);
                 }
+                //aabb
                 if(event.key.code == sf::Keyboard::B)
                 {
                     if(debugDraw.GetFlags() & b2Draw::e_aabbBit) debugDraw.ClearFlags(b2Draw::e_aabbBit);
                     else debugDraw.AppendFlags(b2Draw::e_aabbBit);
                 }
-                if(event.key.code == sf::Keyboard::C)
-                {
-                    if(debugDraw.GetFlags() & b2Draw::e_centerOfMassBit) debugDraw.ClearFlags(b2Draw::e_centerOfMassBit);
-                    else debugDraw.AppendFlags(b2Draw::e_centerOfMassBit);
-                }
-                //to do: parovi u broad fazi - treba iscrtati
-                if(event.key.code == sf::Keyboard::D)
-                {
-                    if(debugDraw.GetFlags() & b2Draw::e_pairBit) debugDraw.ClearFlags(b2Draw::e_pairBit);
-                    else debugDraw.AppendFlags(b2Draw::e_pairBit);
-                }
+
             }
-
-
-
 
         }
 

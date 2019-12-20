@@ -17,5 +17,5 @@ target_link_libraries(main sfml-graphics  sfml-window sfml-system ${BOX2D_LIBRAR
 add_custom_command(
         TARGET main POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy
-                ${CMAKE_SOURCE_DIR}
+		${CMAKE_SOURCE_DIR}
                 ${CMAKE_CURRENT_BINARY_DIR} )

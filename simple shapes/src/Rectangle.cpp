@@ -4,7 +4,7 @@ Rectangle::Rectangle(float x, float y, sf::Vector2f size, b2World& world)
 {
     m_name = "Rectangle";
     m_size = size;
-    m_color = sf::Color::Green;
+    m_color = sf::Color(64,64,64);
 
     // Create body static box2D
     b2PolygonShape polygonShape;

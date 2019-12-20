@@ -8,6 +8,5 @@ Tipke za iscrtavanje objekata:
 
 A - box2d iscrtavanje oblika
 B - AABB
-C - koordinate smjera
 
 
