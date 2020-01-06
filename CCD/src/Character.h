@@ -9,11 +9,16 @@ class Character : public Shape
         Character(float x, float y, sf::Vector2f size, b2World &world);
 
         void draw(sf::RenderWindow &window);
+        int getCurrTexture();
+        void setCurrTexture(int idx);
 
     protected:
 
-        sf::RectangleShape m_shape;
-        sf::Sprite         sprite;  //lovac/kauboj
+        sf::RectangleShape           m_shape;
+        sf::Sprite                   m_sprite;
+        std::vector<sf::Texture>     m_texture;     //vektor za slike
+        int                          m_current_texture;
+
     private:
 };
 

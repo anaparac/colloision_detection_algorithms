@@ -5,7 +5,7 @@ Shape::Shape()
     m_name = "Shape";
 
     // Size shape
-    m_size = sf::Vector2f(25.f, 25.0f);
+    m_size = sf::Vector2f(30.f, 30.0f);
     m_contacting = 0;
 
 }

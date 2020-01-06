@@ -4,7 +4,6 @@
 #include "SFMLDebugDraw.h"
 #include "Shape.h"
 #include "Wall.h"
-#include "Square.h"
 #include "Bullet.h"
 #include "Target.h"
 #include "Character.h"
@@ -12,11 +11,9 @@
 #include "ContactListener.h"
 
 #include <iostream>
-#include <ctime>
-#include <typeinfo>
 #include <vector>
 
-#define TIMESTEP 1.0f/90.0f     // Refresh time
+#define TIMESTEP 1.0f/60.0f     // Refresh time
 #define VELITER 8              // iterations per tick to calculate speed -> standardno 8
 #define POSITER 3              // iterations to calculate the position -> standardno 3
 
@@ -38,14 +35,14 @@ void createShape(std::vector<Shape* > &vectorShapes, b2World &world, int numberS
 
     //umjesto square kreirati target
     if(numberShape == 1){
-        position.x = 800;
-        position.y = 250;
-        shape = static_cast<Square*>( new Square(world, position) );
+        position.x = 600;
+        position.y = 300;
+        shape = static_cast<Target*>( new Target(position.x,position.y, sf::Vector2f(20,50), world) );
     }
     //bullet
     else if(numberShape == 2){
-        position.x = 50;
-        position.y = 385;
+        position.x = 150;
+        position.y = 510;
         force.x =100, 0;
         shape = static_cast<Bullet*>( new Bullet(world, position) );
     }
@@ -58,62 +55,65 @@ void createShape(std::vector<Shape* > &vectorShapes, b2World &world, int numberS
 }
 
 
-
-
 void showInstructions()
 {
     std::cout << std::endl << std::endl;
-
     std::cout << " INSTRUCTIONS             "            << std::endl << std::endl;
-
     std::cout << " Draw target       : Key 1"            << std::endl;
-
     std::cout << " Fire bullet       : Key space"        << std::endl << std::endl;
-
     //std::cout << " Debug draw        : Keys A, B, C";
 }
 
 int main()
 {
-    srand(time(0));
-
-    // Instructions
-    showInstructions();
-
-    // Define world Box2D - Zero gravity
-    b2World m_world(b2Vec2(0.f, 9.81f));
-
+    sf::Clock clock;
+    sf::Time prevTime = clock.getElapsedTime();
     std::vector<Shape* > m_vectorShapes;
 
-    // Create walls - static bodies
-    m_vectorShapes.push_back(new Wall(400.f, 600.f, sf::Vector2f(800.f, 15.f), m_world));
-    m_vectorShapes.push_back(new Wall(600.f, 500.f, sf::Vector2f(15.f, 200.f), m_world));
 
-    //character
-    m_vectorShapes.push_back(new Character(50.f, 500.f, sf::Vector2f(60.f, 200.f), m_world));
+    showInstructions();
 
+    sf::Texture tex;
+    tex.loadFromFile("background.png");
+    sf::Sprite BGsprite;
+    BGsprite.setTexture(tex);
+    BGsprite.setScale(0.56,0.56);
 
-
+    b2World m_world(b2Vec2(0.f, 9.81f));
     sf::ContextSettings settings;
     settings.antialiasingLevel = 8;
 
     sf::RenderWindow m_window(sf::VideoMode(800, 600), "Collision detection", sf::Style::Default, settings);
-    m_window.setFramerateLimit(60);
+    m_window.setFramerateLimit(30);
 
-    // Initialize Debug draw -> poveze s sfml dijelom za iscrtavanje
     SFMLDebugDraw debugDraw(m_window);
     m_world.SetDebugDraw(&debugDraw);
 
-    //instantiate ContactListener
-    //at global scope
-    ContactListener ContactListenerInstance;
-    m_world.SetContactListener(&ContactListenerInstance);
 
-    // Set initial flags for what to draw
-    debugDraw.SetFlags(b2Draw::e_shapeBit);
+
+    // Create walls - static bodies
+    m_vectorShapes.push_back(new Wall(400.f, 600.f, sf::Vector2f(800.f, 1.f), m_world));
+    m_vectorShapes.push_back(new Wall(600.f, 620.f, sf::Vector2f(110.f,165.f), m_world));
+
+    //character
+    Character* character = new Character(80.f, 500.f, sf::Vector2f(120.f, 200.f), m_world);
+    m_vectorShapes.push_back(character);
+
+
+
+
+    //flags for animation
+    int prepare_shoot = 1;
+    int animate = 0;
+    int shoot = 0;
+    const float timePerFrame = 1.0 / 0.07;   //textures per millisecond
+    sf::Time elapsedTime;
 
     while (m_window.isOpen())
     {
+
+        elapsedTime = clock.getElapsedTime() - prevTime;
+        prevTime = prevTime + elapsedTime;
 
         sf::Event event;
         while (m_window.pollEvent(event))
@@ -126,8 +126,10 @@ int main()
                 // Kreiraj dinamicnu metu
                 if (event.key.code == sf::Keyboard::Num1)
                     createShape(m_vectorShapes, m_world, 1);
-                if (event.key.code == sf::Keyboard::Space)
-                    createShape(m_vectorShapes, m_world, 2);
+
+                if (event.key.code == sf::Keyboard::Space){
+                    animate = 1;
+                }
 
 
 
@@ -146,14 +148,41 @@ int main()
 
             }
 
+
+            //update animation
+            if(animate){
+
+                if(prepare_shoot){
+
+                    if(elapsedTime.asMilliseconds()>=timePerFrame){
+                        character->setCurrTexture( character->getCurrTexture() + 1 );
+                        elapsedTime = clock.restart();
+                    }
+                    if(character->getCurrTexture()  == 5)    {prepare_shoot = 0; shoot = 1;}
+                }
+
+                if(shoot){ createShape(m_vectorShapes, m_world, 2); shoot = 0; }
+
+                if(!prepare_shoot){
+                    if(elapsedTime.asMilliseconds()>=timePerFrame){
+                        character->setCurrTexture( character->getCurrTexture() - 1 );
+                        elapsedTime = clock.restart();
+                    }
+                    if(character->getCurrTexture()  == 0)    {prepare_shoot = 1; animate = 0;}
+                }
+            }
+
+
         }
 
         // Update window
         m_window.clear(sf::Color::Transparent);
 
+
         // Update world Box2D
         m_world.Step(TIMESTEP, VELITER, POSITER);
 
+        m_window.draw(BGsprite);
         // Draw vector shapes
         for (int i = 0; i < m_vectorShapes.size(); i++)
             m_vectorShapes.at(i)->draw(m_window);

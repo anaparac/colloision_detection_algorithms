@@ -4,7 +4,7 @@ Wall::Wall(float x, float y, sf::Vector2f size, b2World& world)
 {
     m_name = "Wall";
     m_size = size;
-    m_color = sf::Color(64,64,64);
+    m_color = sf::Color::Transparent;
 
     // Create body static box2D
     b2PolygonShape polygonShape;
@@ -17,13 +17,12 @@ Wall::Wall(float x, float y, sf::Vector2f size, b2World& world)
 
     polygonShape.SetAsBox( m_size.x/2 * MPP, m_size.y/2 * MPP);
     fixtureDef.shape = &polygonShape;
-    fixtureDef.friction = 0.2f;
-    fixtureDef.restitution	= 0.3f;
-    fixtureDef.density	= 0.7f;
 
     //m_body->SetUserData(this);
     m_body->CreateFixture(&fixtureDef);
+    //ucitaj texture
 
+    m_texture.loadFromFile("rock.png");
 
 }
 
@@ -43,6 +42,15 @@ void Wall::draw(sf::RenderWindow &window)
         m_shape.setFillColor(m_color);
         m_shape.setSize(m_size);
         m_shape.setOrigin(m_size.x/2, m_size.y/2);
+        m_sprite.setTexture(m_texture);
+        m_sprite.setScale((m_size.x / m_texture.getSize().x ),
+                          (m_size.y / m_texture.getSize().y ));
+
+        m_sprite.setPosition((position.x- m_size.x*MPP/2) * PPM , (position.y- m_size.y*MPP/2)*PPM);
+        m_sprite.setRotation((angle * 180) / M_PI);
+
+
         window.draw(m_shape);
+        window.draw(m_sprite);
     }
 }

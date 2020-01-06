@@ -13,7 +13,8 @@ class Bullet : public Shape
     protected:
         float           m_radius;
         sf::CircleShape m_shape;
-        sf::Color       m_color_spec;
+        sf::Sprite      m_sprite;
+        sf::Texture     m_texture;
 
     private:
 };
