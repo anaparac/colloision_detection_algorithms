@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ana/Desktop/diplomski/CCD
+CMAKE_SOURCE_DIR = /home/ana/Desktop/detekcija_kolizija/CCD
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ana/Desktop/diplomski/CCD/build
+CMAKE_BINARY_DIR = /home/ana/Desktop/detekcija_kolizija/CCD/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,14 +80,14 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/ana/Desktop/diplomski/CCD/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/ana/Desktop/diplomski/CCD/build/CMakeFiles /home/ana/Desktop/diplomski/CCD/build/src/CMakeFiles/progress.marks
-	cd /home/ana/Desktop/diplomski/CCD/build && $(MAKE) -f CMakeFiles/Makefile2 src/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ana/Desktop/diplomski/CCD/build/CMakeFiles 0
+	cd /home/ana/Desktop/detekcija_kolizija/CCD/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/ana/Desktop/detekcija_kolizija/CCD/build/CMakeFiles /home/ana/Desktop/detekcija_kolizija/CCD/build/src/CMakeFiles/progress.marks
+	cd /home/ana/Desktop/detekcija_kolizija/CCD/build && $(MAKE) -f CMakeFiles/Makefile2 src/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ana/Desktop/detekcija_kolizija/CCD/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/ana/Desktop/diplomski/CCD/build && $(MAKE) -f CMakeFiles/Makefile2 src/clean
+	cd /home/ana/Desktop/detekcija_kolizija/CCD/build && $(MAKE) -f CMakeFiles/Makefile2 src/clean
 .PHONY : clean
 
 # The main clean target
@@ -97,22 +97,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/ana/Desktop/diplomski/CCD/build && $(MAKE) -f CMakeFiles/Makefile2 src/preinstall
+	cd /home/ana/Desktop/detekcija_kolizija/CCD/build && $(MAKE) -f CMakeFiles/Makefile2 src/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/ana/Desktop/diplomski/CCD/build && $(MAKE) -f CMakeFiles/Makefile2 src/preinstall
+	cd /home/ana/Desktop/detekcija_kolizija/CCD/build && $(MAKE) -f CMakeFiles/Makefile2 src/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/ana/Desktop/diplomski/CCD/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/ana/Desktop/detekcija_kolizija/CCD/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 src/CMakeFiles/main.dir/rule:
-	cd /home/ana/Desktop/diplomski/CCD/build && $(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/main.dir/rule
+	cd /home/ana/Desktop/detekcija_kolizija/CCD/build && $(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/main.dir/rule
 .PHONY : src/CMakeFiles/main.dir/rule
 
 # Convenience name for target.
@@ -122,7 +122,7 @@ main: src/CMakeFiles/main.dir/rule
 
 # fast build rule for target.
 main/fast:
-	cd /home/ana/Desktop/diplomski/CCD/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/build
+	cd /home/ana/Desktop/detekcija_kolizija/CCD/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/build
 .PHONY : main/fast
 
 Bullet.o: Bullet.cpp.o
@@ -131,7 +131,7 @@ Bullet.o: Bullet.cpp.o
 
 # target to build an object file
 Bullet.cpp.o:
-	cd /home/ana/Desktop/diplomski/CCD/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/Bullet.cpp.o
+	cd /home/ana/Desktop/detekcija_kolizija/CCD/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/Bullet.cpp.o
 .PHONY : Bullet.cpp.o
 
 Bullet.i: Bullet.cpp.i
@@ -140,7 +140,7 @@ Bullet.i: Bullet.cpp.i
 
 # target to preprocess a source file
 Bullet.cpp.i:
-	cd /home/ana/Desktop/diplomski/CCD/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/Bullet.cpp.i
+	cd /home/ana/Desktop/detekcija_kolizija/CCD/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/Bullet.cpp.i
 .PHONY : Bullet.cpp.i
 
 Bullet.s: Bullet.cpp.s
@@ -149,7 +149,7 @@ Bullet.s: Bullet.cpp.s
 
 # target to generate assembly for a file
 Bullet.cpp.s:
-	cd /home/ana/Desktop/diplomski/CCD/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/Bullet.cpp.s
+	cd /home/ana/Desktop/detekcija_kolizija/CCD/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/Bullet.cpp.s
 .PHONY : Bullet.cpp.s
 
 Character.o: Character.cpp.o
@@ -158,7 +158,7 @@ Character.o: Character.cpp.o
 
 # target to build an object file
 Character.cpp.o:
-	cd /home/ana/Desktop/diplomski/CCD/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/Character.cpp.o
+	cd /home/ana/Desktop/detekcija_kolizija/CCD/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/Character.cpp.o
 .PHONY : Character.cpp.o
 
 Character.i: Character.cpp.i
@@ -167,7 +167,7 @@ Character.i: Character.cpp.i
 
 # target to preprocess a source file
 Character.cpp.i:
-	cd /home/ana/Desktop/diplomski/CCD/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/Character.cpp.i
+	cd /home/ana/Desktop/detekcija_kolizija/CCD/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/Character.cpp.i
 .PHONY : Character.cpp.i
 
 Character.s: Character.cpp.s
@@ -176,7 +176,7 @@ Character.s: Character.cpp.s
 
 # target to generate assembly for a file
 Character.cpp.s:
-	cd /home/ana/Desktop/diplomski/CCD/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/Character.cpp.s
+	cd /home/ana/Desktop/detekcija_kolizija/CCD/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/Character.cpp.s
 .PHONY : Character.cpp.s
 
 SFMLDebugDraw.o: SFMLDebugDraw.cpp.o
@@ -185,7 +185,7 @@ SFMLDebugDraw.o: SFMLDebugDraw.cpp.o
 
 # target to build an object file
 SFMLDebugDraw.cpp.o:
-	cd /home/ana/Desktop/diplomski/CCD/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/SFMLDebugDraw.cpp.o
+	cd /home/ana/Desktop/detekcija_kolizija/CCD/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/SFMLDebugDraw.cpp.o
 .PHONY : SFMLDebugDraw.cpp.o
 
 SFMLDebugDraw.i: SFMLDebugDraw.cpp.i
@@ -194,7 +194,7 @@ SFMLDebugDraw.i: SFMLDebugDraw.cpp.i
 
 # target to preprocess a source file
 SFMLDebugDraw.cpp.i:
-	cd /home/ana/Desktop/diplomski/CCD/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/SFMLDebugDraw.cpp.i
+	cd /home/ana/Desktop/detekcija_kolizija/CCD/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/SFMLDebugDraw.cpp.i
 .PHONY : SFMLDebugDraw.cpp.i
 
 SFMLDebugDraw.s: SFMLDebugDraw.cpp.s
@@ -203,7 +203,7 @@ SFMLDebugDraw.s: SFMLDebugDraw.cpp.s
 
 # target to generate assembly for a file
 SFMLDebugDraw.cpp.s:
-	cd /home/ana/Desktop/diplomski/CCD/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/SFMLDebugDraw.cpp.s
+	cd /home/ana/Desktop/detekcija_kolizija/CCD/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/SFMLDebugDraw.cpp.s
 .PHONY : SFMLDebugDraw.cpp.s
 
 Shape.o: Shape.cpp.o
@@ -212,7 +212,7 @@ Shape.o: Shape.cpp.o
 
 # target to build an object file
 Shape.cpp.o:
-	cd /home/ana/Desktop/diplomski/CCD/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/Shape.cpp.o
+	cd /home/ana/Desktop/detekcija_kolizija/CCD/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/Shape.cpp.o
 .PHONY : Shape.cpp.o
 
 Shape.i: Shape.cpp.i
@@ -221,7 +221,7 @@ Shape.i: Shape.cpp.i
 
 # target to preprocess a source file
 Shape.cpp.i:
-	cd /home/ana/Desktop/diplomski/CCD/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/Shape.cpp.i
+	cd /home/ana/Desktop/detekcija_kolizija/CCD/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/Shape.cpp.i
 .PHONY : Shape.cpp.i
 
 Shape.s: Shape.cpp.s
@@ -230,7 +230,7 @@ Shape.s: Shape.cpp.s
 
 # target to generate assembly for a file
 Shape.cpp.s:
-	cd /home/ana/Desktop/diplomski/CCD/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/Shape.cpp.s
+	cd /home/ana/Desktop/detekcija_kolizija/CCD/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/Shape.cpp.s
 .PHONY : Shape.cpp.s
 
 Target.o: Target.cpp.o
@@ -239,7 +239,7 @@ Target.o: Target.cpp.o
 
 # target to build an object file
 Target.cpp.o:
-	cd /home/ana/Desktop/diplomski/CCD/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/Target.cpp.o
+	cd /home/ana/Desktop/detekcija_kolizija/CCD/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/Target.cpp.o
 .PHONY : Target.cpp.o
 
 Target.i: Target.cpp.i
@@ -248,7 +248,7 @@ Target.i: Target.cpp.i
 
 # target to preprocess a source file
 Target.cpp.i:
-	cd /home/ana/Desktop/diplomski/CCD/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/Target.cpp.i
+	cd /home/ana/Desktop/detekcija_kolizija/CCD/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/Target.cpp.i
 .PHONY : Target.cpp.i
 
 Target.s: Target.cpp.s
@@ -257,7 +257,7 @@ Target.s: Target.cpp.s
 
 # target to generate assembly for a file
 Target.cpp.s:
-	cd /home/ana/Desktop/diplomski/CCD/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/Target.cpp.s
+	cd /home/ana/Desktop/detekcija_kolizija/CCD/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/Target.cpp.s
 .PHONY : Target.cpp.s
 
 Wall.o: Wall.cpp.o
@@ -266,7 +266,7 @@ Wall.o: Wall.cpp.o
 
 # target to build an object file
 Wall.cpp.o:
-	cd /home/ana/Desktop/diplomski/CCD/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/Wall.cpp.o
+	cd /home/ana/Desktop/detekcija_kolizija/CCD/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/Wall.cpp.o
 .PHONY : Wall.cpp.o
 
 Wall.i: Wall.cpp.i
@@ -275,7 +275,7 @@ Wall.i: Wall.cpp.i
 
 # target to preprocess a source file
 Wall.cpp.i:
-	cd /home/ana/Desktop/diplomski/CCD/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/Wall.cpp.i
+	cd /home/ana/Desktop/detekcija_kolizija/CCD/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/Wall.cpp.i
 .PHONY : Wall.cpp.i
 
 Wall.s: Wall.cpp.s
@@ -284,7 +284,7 @@ Wall.s: Wall.cpp.s
 
 # target to generate assembly for a file
 Wall.cpp.s:
-	cd /home/ana/Desktop/diplomski/CCD/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/Wall.cpp.s
+	cd /home/ana/Desktop/detekcija_kolizija/CCD/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/Wall.cpp.s
 .PHONY : Wall.cpp.s
 
 main.o: main.cpp.o
@@ -293,7 +293,7 @@ main.o: main.cpp.o
 
 # target to build an object file
 main.cpp.o:
-	cd /home/ana/Desktop/diplomski/CCD/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/main.cpp.o
+	cd /home/ana/Desktop/detekcija_kolizija/CCD/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/main.cpp.o
 .PHONY : main.cpp.o
 
 main.i: main.cpp.i
@@ -302,7 +302,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	cd /home/ana/Desktop/diplomski/CCD/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/main.cpp.i
+	cd /home/ana/Desktop/detekcija_kolizija/CCD/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -311,7 +311,7 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	cd /home/ana/Desktop/diplomski/CCD/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/main.cpp.s
+	cd /home/ana/Desktop/detekcija_kolizija/CCD/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/main.cpp.s
 .PHONY : main.cpp.s
 
 # Help Target
@@ -355,6 +355,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/ana/Desktop/diplomski/CCD/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/ana/Desktop/detekcija_kolizija/CCD/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

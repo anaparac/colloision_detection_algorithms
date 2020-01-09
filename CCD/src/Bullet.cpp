@@ -21,8 +21,8 @@ Bullet::Bullet(b2World &world, sf::Vector2f center)
 
     //////////////////////////////////
     ///enable bullet mode to apply CCD      -> na pritisak neke tipke s tipkovnice
-    bodyDef.bullet = false;
-    //bodyDef.bullet = true;
+    //bodyDef.bullet = false;
+    bodyDef.bullet = true;
     //////////////////////////////////
 
 
@@ -51,13 +51,6 @@ void Bullet::draw(sf::RenderWindow& window)
         b2Vec2 position = m_body->GetPosition();
         float  angle = m_body->GetAngle();
 
-
-        m_shape.setOrigin(m_size.x / 2, m_size.y /2);
-        m_shape.setRadius(m_radius);
-        m_shape.setFillColor(m_color);
-        m_shape.setPosition(position.x * PPM, position.y * PPM);
-        m_shape.setRotation((angle * 180) / M_PI);
-
         m_sprite.setTexture(m_texture);
         m_sprite.setScale((m_size.x / m_texture.getSize().x ),
                           (m_size.y / m_texture.getSize().y ));
@@ -66,7 +59,6 @@ void Bullet::draw(sf::RenderWindow& window)
         m_sprite.setRotation((angle * 180) / M_PI);
 
 
-        window.draw(m_shape);
         window.draw(m_sprite);
     }
 }

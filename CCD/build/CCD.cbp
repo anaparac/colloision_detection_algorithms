@@ -8,38 +8,38 @@
       <Option virtualFolders="CMake Files\;CMake Files\cmake\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\..\;CMake Files\..\..\..\..\..\usr\;CMake Files\..\..\..\..\..\usr\lib\;CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\;CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\;CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Box2D\;CMake Files\src\;" />
       <Build>
       <Target title="all">
-         <Option working_dir="/home/ana/Desktop/diplomski/CCD/build" />
+         <Option working_dir="/home/ana/Desktop/detekcija_kolizija/CCD/build" />
          <Option type="4" />
          <MakeCommands>
-            <Build command="/usr/bin/make -f &quot;/home/ana/Desktop/diplomski/CCD/build/Makefile&quot;  VERBOSE=1 all" />
-            <CompileFile command="/usr/bin/make -f &quot;/home/ana/Desktop/diplomski/CCD/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
-            <Clean command="/usr/bin/make -f &quot;/home/ana/Desktop/diplomski/CCD/build/Makefile&quot;  VERBOSE=1 clean" />
-            <DistClean command="/usr/bin/make -f &quot;/home/ana/Desktop/diplomski/CCD/build/Makefile&quot;  VERBOSE=1 clean" />
+            <Build command="/usr/bin/make -f &quot;/home/ana/Desktop/detekcija_kolizija/CCD/build/Makefile&quot;  VERBOSE=1 all" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/ana/Desktop/detekcija_kolizija/CCD/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/ana/Desktop/detekcija_kolizija/CCD/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/ana/Desktop/detekcija_kolizija/CCD/build/Makefile&quot;  VERBOSE=1 clean" />
          </MakeCommands>
       </Target>
       <Target title="edit_cache">
-         <Option working_dir="/home/ana/Desktop/diplomski/CCD/build" />
+         <Option working_dir="/home/ana/Desktop/detekcija_kolizija/CCD/build" />
          <Option type="4" />
          <MakeCommands>
-            <Build command="/usr/bin/make -f &quot;/home/ana/Desktop/diplomski/CCD/build/Makefile&quot;  VERBOSE=1 edit_cache" />
-            <CompileFile command="/usr/bin/make -f &quot;/home/ana/Desktop/diplomski/CCD/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
-            <Clean command="/usr/bin/make -f &quot;/home/ana/Desktop/diplomski/CCD/build/Makefile&quot;  VERBOSE=1 clean" />
-            <DistClean command="/usr/bin/make -f &quot;/home/ana/Desktop/diplomski/CCD/build/Makefile&quot;  VERBOSE=1 clean" />
+            <Build command="/usr/bin/make -f &quot;/home/ana/Desktop/detekcija_kolizija/CCD/build/Makefile&quot;  VERBOSE=1 edit_cache" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/ana/Desktop/detekcija_kolizija/CCD/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/ana/Desktop/detekcija_kolizija/CCD/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/ana/Desktop/detekcija_kolizija/CCD/build/Makefile&quot;  VERBOSE=1 clean" />
          </MakeCommands>
       </Target>
       <Target title="rebuild_cache">
-         <Option working_dir="/home/ana/Desktop/diplomski/CCD/build" />
+         <Option working_dir="/home/ana/Desktop/detekcija_kolizija/CCD/build" />
          <Option type="4" />
          <MakeCommands>
-            <Build command="/usr/bin/make -f &quot;/home/ana/Desktop/diplomski/CCD/build/Makefile&quot;  VERBOSE=1 rebuild_cache" />
-            <CompileFile command="/usr/bin/make -f &quot;/home/ana/Desktop/diplomski/CCD/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
-            <Clean command="/usr/bin/make -f &quot;/home/ana/Desktop/diplomski/CCD/build/Makefile&quot;  VERBOSE=1 clean" />
-            <DistClean command="/usr/bin/make -f &quot;/home/ana/Desktop/diplomski/CCD/build/Makefile&quot;  VERBOSE=1 clean" />
+            <Build command="/usr/bin/make -f &quot;/home/ana/Desktop/detekcija_kolizija/CCD/build/Makefile&quot;  VERBOSE=1 rebuild_cache" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/ana/Desktop/detekcija_kolizija/CCD/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/ana/Desktop/detekcija_kolizija/CCD/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/ana/Desktop/detekcija_kolizija/CCD/build/Makefile&quot;  VERBOSE=1 clean" />
          </MakeCommands>
       </Target>
       <Target title="main">
-         <Option output="/home/ana/Desktop/diplomski/CCD/build/src/main" prefix_auto="0" extension_auto="0" />
-         <Option working_dir="/home/ana/Desktop/diplomski/CCD/build/src" />
+         <Option output="/home/ana/Desktop/detekcija_kolizija/CCD/build/src/main" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/ana/Desktop/detekcija_kolizija/CCD/build/src" />
          <Option object_output="./" />
          <Option type="1" />
          <Option compiler="gcc" />
@@ -54,15 +54,15 @@
             <Add directory="/usr/local/include" />
          </Compiler>
          <MakeCommands>
-            <Build command="/usr/bin/make -f &quot;/home/ana/Desktop/diplomski/CCD/build/src/Makefile&quot;  VERBOSE=1 main" />
-            <CompileFile command="/usr/bin/make -f &quot;/home/ana/Desktop/diplomski/CCD/build/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
-            <Clean command="/usr/bin/make -f &quot;/home/ana/Desktop/diplomski/CCD/build/src/Makefile&quot;  VERBOSE=1 clean" />
-            <DistClean command="/usr/bin/make -f &quot;/home/ana/Desktop/diplomski/CCD/build/src/Makefile&quot;  VERBOSE=1 clean" />
+            <Build command="/usr/bin/make -f &quot;/home/ana/Desktop/detekcija_kolizija/CCD/build/src/Makefile&quot;  VERBOSE=1 main" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/ana/Desktop/detekcija_kolizija/CCD/build/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/ana/Desktop/detekcija_kolizija/CCD/build/src/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/ana/Desktop/detekcija_kolizija/CCD/build/src/Makefile&quot;  VERBOSE=1 clean" />
          </MakeCommands>
       </Target>
       <Target title="main/fast">
-         <Option output="/home/ana/Desktop/diplomski/CCD/build/src/main" prefix_auto="0" extension_auto="0" />
-         <Option working_dir="/home/ana/Desktop/diplomski/CCD/build/src" />
+         <Option output="/home/ana/Desktop/detekcija_kolizija/CCD/build/src/main" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/ana/Desktop/detekcija_kolizija/CCD/build/src" />
          <Option object_output="./" />
          <Option type="1" />
          <Option compiler="gcc" />
@@ -77,65 +77,65 @@
             <Add directory="/usr/local/include" />
          </Compiler>
          <MakeCommands>
-            <Build command="/usr/bin/make -f &quot;/home/ana/Desktop/diplomski/CCD/build/src/Makefile&quot;  VERBOSE=1 main/fast" />
-            <CompileFile command="/usr/bin/make -f &quot;/home/ana/Desktop/diplomski/CCD/build/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
-            <Clean command="/usr/bin/make -f &quot;/home/ana/Desktop/diplomski/CCD/build/src/Makefile&quot;  VERBOSE=1 clean" />
-            <DistClean command="/usr/bin/make -f &quot;/home/ana/Desktop/diplomski/CCD/build/src/Makefile&quot;  VERBOSE=1 clean" />
+            <Build command="/usr/bin/make -f &quot;/home/ana/Desktop/detekcija_kolizija/CCD/build/src/Makefile&quot;  VERBOSE=1 main/fast" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/ana/Desktop/detekcija_kolizija/CCD/build/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/ana/Desktop/detekcija_kolizija/CCD/build/src/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/ana/Desktop/detekcija_kolizija/CCD/build/src/Makefile&quot;  VERBOSE=1 clean" />
          </MakeCommands>
       </Target>
       </Build>
-      <Unit filename="/home/ana/Desktop/diplomski/CCD/src/Bullet.cpp">
+      <Unit filename="/home/ana/Desktop/detekcija_kolizija/CCD/src/Bullet.cpp">
          <Option target="main"/>
       </Unit>
-      <Unit filename="/home/ana/Desktop/diplomski/CCD/src/Bullet.h">
+      <Unit filename="/home/ana/Desktop/detekcija_kolizija/CCD/src/Bullet.h">
          <Option target="main"/>
       </Unit>
-      <Unit filename="/home/ana/Desktop/diplomski/CCD/src/Character.cpp">
+      <Unit filename="/home/ana/Desktop/detekcija_kolizija/CCD/src/Character.cpp">
          <Option target="main"/>
       </Unit>
-      <Unit filename="/home/ana/Desktop/diplomski/CCD/src/Character.h">
+      <Unit filename="/home/ana/Desktop/detekcija_kolizija/CCD/src/Character.h">
          <Option target="main"/>
       </Unit>
-      <Unit filename="/home/ana/Desktop/diplomski/CCD/src/ContactListener.h">
+      <Unit filename="/home/ana/Desktop/detekcija_kolizija/CCD/src/ContactListener.h">
          <Option target="main"/>
       </Unit>
-      <Unit filename="/home/ana/Desktop/diplomski/CCD/src/SFMLDebugDraw.cpp">
+      <Unit filename="/home/ana/Desktop/detekcija_kolizija/CCD/src/SFMLDebugDraw.cpp">
          <Option target="main"/>
       </Unit>
-      <Unit filename="/home/ana/Desktop/diplomski/CCD/src/SFMLDebugDraw.h">
+      <Unit filename="/home/ana/Desktop/detekcija_kolizija/CCD/src/SFMLDebugDraw.h">
          <Option target="main"/>
       </Unit>
-      <Unit filename="/home/ana/Desktop/diplomski/CCD/src/Shape.cpp">
+      <Unit filename="/home/ana/Desktop/detekcija_kolizija/CCD/src/Shape.cpp">
          <Option target="main"/>
       </Unit>
-      <Unit filename="/home/ana/Desktop/diplomski/CCD/src/Shape.h">
+      <Unit filename="/home/ana/Desktop/detekcija_kolizija/CCD/src/Shape.h">
          <Option target="main"/>
       </Unit>
-      <Unit filename="/home/ana/Desktop/diplomski/CCD/src/Target.cpp">
+      <Unit filename="/home/ana/Desktop/detekcija_kolizija/CCD/src/Target.cpp">
          <Option target="main"/>
       </Unit>
-      <Unit filename="/home/ana/Desktop/diplomski/CCD/src/Target.h">
+      <Unit filename="/home/ana/Desktop/detekcija_kolizija/CCD/src/Target.h">
          <Option target="main"/>
       </Unit>
-      <Unit filename="/home/ana/Desktop/diplomski/CCD/src/Wall.cpp">
+      <Unit filename="/home/ana/Desktop/detekcija_kolizija/CCD/src/Wall.cpp">
          <Option target="main"/>
       </Unit>
-      <Unit filename="/home/ana/Desktop/diplomski/CCD/src/Wall.h">
+      <Unit filename="/home/ana/Desktop/detekcija_kolizija/CCD/src/Wall.h">
          <Option target="main"/>
       </Unit>
-      <Unit filename="/home/ana/Desktop/diplomski/CCD/src/main.cpp">
+      <Unit filename="/home/ana/Desktop/detekcija_kolizija/CCD/src/main.cpp">
          <Option target="main"/>
       </Unit>
-      <Unit filename="/home/ana/Desktop/diplomski/CCD/CMakeLists.txt">
+      <Unit filename="/home/ana/Desktop/detekcija_kolizija/CCD/CMakeLists.txt">
           <Option virtualFolder="CMake Files\" />
       </Unit>
-      <Unit filename="/home/ana/Desktop/diplomski/CCD/cmake/FindSFML.cmake">
+      <Unit filename="/home/ana/Desktop/detekcija_kolizija/CCD/cmake/FindSFML.cmake">
           <Option virtualFolder="CMake Files\cmake\" />
       </Unit>
-      <Unit filename="/home/ana/Desktop/diplomski/CCD/../../../../../usr/lib/x86_64-linux-gnu/cmake/Box2D/Box2DConfig.cmake">
+      <Unit filename="/home/ana/Desktop/detekcija_kolizija/CCD/../../../../../usr/lib/x86_64-linux-gnu/cmake/Box2D/Box2DConfig.cmake">
           <Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Box2D\" />
       </Unit>
-      <Unit filename="/home/ana/Desktop/diplomski/CCD/src/CMakeLists.txt">
+      <Unit filename="/home/ana/Desktop/detekcija_kolizija/CCD/src/CMakeLists.txt">
           <Option virtualFolder="CMake Files\src\" />
       </Unit>
    </Project>

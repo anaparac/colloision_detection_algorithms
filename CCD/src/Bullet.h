@@ -12,7 +12,6 @@ class Bullet : public Shape
 
     protected:
         float           m_radius;
-        sf::CircleShape m_shape;
         sf::Sprite      m_sprite;
         sf::Texture     m_texture;
 

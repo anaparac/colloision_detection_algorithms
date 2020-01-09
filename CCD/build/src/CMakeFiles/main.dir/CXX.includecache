@@ -6,31 +6,31 @@
 
 #IncludeRegexTransform: 
 
-/home/ana/Desktop/diplomski/CCD/src/Bullet.cpp
+/home/ana/Desktop/detekcija_kolizija/CCD/src/Bullet.cpp
 Bullet.h
-/home/ana/Desktop/diplomski/CCD/src/Bullet.h
+/home/ana/Desktop/detekcija_kolizija/CCD/src/Bullet.h
 
-/home/ana/Desktop/diplomski/CCD/src/Bullet.h
+/home/ana/Desktop/detekcija_kolizija/CCD/src/Bullet.h
 Shape.h
-/home/ana/Desktop/diplomski/CCD/src/Shape.h
+/home/ana/Desktop/detekcija_kolizija/CCD/src/Shape.h
 
-/home/ana/Desktop/diplomski/CCD/src/Character.cpp
+/home/ana/Desktop/detekcija_kolizija/CCD/src/Character.cpp
 Character.h
-/home/ana/Desktop/diplomski/CCD/src/Character.h
+/home/ana/Desktop/detekcija_kolizija/CCD/src/Character.h
 
-/home/ana/Desktop/diplomski/CCD/src/Character.h
+/home/ana/Desktop/detekcija_kolizija/CCD/src/Character.h
 Shape.h
-/home/ana/Desktop/diplomski/CCD/src/Shape.h
+/home/ana/Desktop/detekcija_kolizija/CCD/src/Shape.h
 
-/home/ana/Desktop/diplomski/CCD/src/ContactListener.h
+/home/ana/Desktop/detekcija_kolizija/CCD/src/ContactListener.h
 Box2D/Box2D.h
 -
 
-/home/ana/Desktop/diplomski/CCD/src/SFMLDebugDraw.cpp
+/home/ana/Desktop/detekcija_kolizija/CCD/src/SFMLDebugDraw.cpp
 SFMLDebugDraw.h
-/home/ana/Desktop/diplomski/CCD/src/SFMLDebugDraw.h
+/home/ana/Desktop/detekcija_kolizija/CCD/src/SFMLDebugDraw.h
 
-/home/ana/Desktop/diplomski/CCD/src/SFMLDebugDraw.h
+/home/ana/Desktop/detekcija_kolizija/CCD/src/SFMLDebugDraw.h
 Box2D/Box2D.h
 -
 SFML/Window.hpp
@@ -40,11 +40,11 @@ SFML/Graphics.hpp
 cmath
 -
 
-/home/ana/Desktop/diplomski/CCD/src/Shape.cpp
+/home/ana/Desktop/detekcija_kolizija/CCD/src/Shape.cpp
 Shape.h
-/home/ana/Desktop/diplomski/CCD/src/Shape.h
+/home/ana/Desktop/detekcija_kolizija/CCD/src/Shape.h
 
-/home/ana/Desktop/diplomski/CCD/src/Shape.h
+/home/ana/Desktop/detekcija_kolizija/CCD/src/Shape.h
 SFML/Graphics.hpp
 -
 Box2D/Box2D.h
@@ -56,41 +56,41 @@ string
 cstdlib
 -
 
-/home/ana/Desktop/diplomski/CCD/src/Target.cpp
+/home/ana/Desktop/detekcija_kolizija/CCD/src/Target.cpp
 Target.h
-/home/ana/Desktop/diplomski/CCD/src/Target.h
+/home/ana/Desktop/detekcija_kolizija/CCD/src/Target.h
 
-/home/ana/Desktop/diplomski/CCD/src/Target.h
+/home/ana/Desktop/detekcija_kolizija/CCD/src/Target.h
 Shape.h
-/home/ana/Desktop/diplomski/CCD/src/Shape.h
+/home/ana/Desktop/detekcija_kolizija/CCD/src/Shape.h
 
-/home/ana/Desktop/diplomski/CCD/src/Wall.cpp
+/home/ana/Desktop/detekcija_kolizija/CCD/src/Wall.cpp
 Wall.h
-/home/ana/Desktop/diplomski/CCD/src/Wall.h
+/home/ana/Desktop/detekcija_kolizija/CCD/src/Wall.h
 
-/home/ana/Desktop/diplomski/CCD/src/Wall.h
+/home/ana/Desktop/detekcija_kolizija/CCD/src/Wall.h
 Shape.h
-/home/ana/Desktop/diplomski/CCD/src/Shape.h
+/home/ana/Desktop/detekcija_kolizija/CCD/src/Shape.h
 
-/home/ana/Desktop/diplomski/CCD/src/main.cpp
+/home/ana/Desktop/detekcija_kolizija/CCD/src/main.cpp
 SFML/Graphics.hpp
 -
 Box2D/Box2D.h
 -
 SFMLDebugDraw.h
-/home/ana/Desktop/diplomski/CCD/src/SFMLDebugDraw.h
+/home/ana/Desktop/detekcija_kolizija/CCD/src/SFMLDebugDraw.h
 Shape.h
-/home/ana/Desktop/diplomski/CCD/src/Shape.h
+/home/ana/Desktop/detekcija_kolizija/CCD/src/Shape.h
 Wall.h
-/home/ana/Desktop/diplomski/CCD/src/Wall.h
+/home/ana/Desktop/detekcija_kolizija/CCD/src/Wall.h
 Bullet.h
-/home/ana/Desktop/diplomski/CCD/src/Bullet.h
+/home/ana/Desktop/detekcija_kolizija/CCD/src/Bullet.h
 Target.h
-/home/ana/Desktop/diplomski/CCD/src/Target.h
+/home/ana/Desktop/detekcija_kolizija/CCD/src/Target.h
 Character.h
-/home/ana/Desktop/diplomski/CCD/src/Character.h
+/home/ana/Desktop/detekcija_kolizija/CCD/src/Character.h
 ContactListener.h
-/home/ana/Desktop/diplomski/CCD/src/ContactListener.h
+/home/ana/Desktop/detekcija_kolizija/CCD/src/ContactListener.h
 iostream
 -
 vector

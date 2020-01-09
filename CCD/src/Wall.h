@@ -12,7 +12,6 @@ class Wall : public Shape
 
     protected:
 
-        sf::RectangleShape m_shape;
         sf::Sprite      m_sprite;
         sf::Texture     m_texture;
     private:

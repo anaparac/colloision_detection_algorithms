@@ -14,7 +14,6 @@ class Character : public Shape
 
     protected:
 
-        sf::RectangleShape           m_shape;
         sf::Sprite                   m_sprite;
         std::vector<sf::Texture>     m_texture;     //vektor za slike
         int                          m_current_texture;

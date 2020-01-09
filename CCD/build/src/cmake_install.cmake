@@ -1,4 +1,4 @@
-# Install script for directory: /home/ana/Desktop/diplomski/CCD/src
+# Install script for directory: /home/ana/Desktop/detekcija_kolizija/CCD/src
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

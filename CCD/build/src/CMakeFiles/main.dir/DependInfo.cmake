@@ -4,13 +4,13 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/ana/Desktop/diplomski/CCD/src/Bullet.cpp" "/home/ana/Desktop/diplomski/CCD/build/src/CMakeFiles/main.dir/Bullet.cpp.o"
-  "/home/ana/Desktop/diplomski/CCD/src/Character.cpp" "/home/ana/Desktop/diplomski/CCD/build/src/CMakeFiles/main.dir/Character.cpp.o"
-  "/home/ana/Desktop/diplomski/CCD/src/SFMLDebugDraw.cpp" "/home/ana/Desktop/diplomski/CCD/build/src/CMakeFiles/main.dir/SFMLDebugDraw.cpp.o"
-  "/home/ana/Desktop/diplomski/CCD/src/Shape.cpp" "/home/ana/Desktop/diplomski/CCD/build/src/CMakeFiles/main.dir/Shape.cpp.o"
-  "/home/ana/Desktop/diplomski/CCD/src/Target.cpp" "/home/ana/Desktop/diplomski/CCD/build/src/CMakeFiles/main.dir/Target.cpp.o"
-  "/home/ana/Desktop/diplomski/CCD/src/Wall.cpp" "/home/ana/Desktop/diplomski/CCD/build/src/CMakeFiles/main.dir/Wall.cpp.o"
-  "/home/ana/Desktop/diplomski/CCD/src/main.cpp" "/home/ana/Desktop/diplomski/CCD/build/src/CMakeFiles/main.dir/main.cpp.o"
+  "/home/ana/Desktop/detekcija_kolizija/CCD/src/Bullet.cpp" "/home/ana/Desktop/detekcija_kolizija/CCD/build/src/CMakeFiles/main.dir/Bullet.cpp.o"
+  "/home/ana/Desktop/detekcija_kolizija/CCD/src/Character.cpp" "/home/ana/Desktop/detekcija_kolizija/CCD/build/src/CMakeFiles/main.dir/Character.cpp.o"
+  "/home/ana/Desktop/detekcija_kolizija/CCD/src/SFMLDebugDraw.cpp" "/home/ana/Desktop/detekcija_kolizija/CCD/build/src/CMakeFiles/main.dir/SFMLDebugDraw.cpp.o"
+  "/home/ana/Desktop/detekcija_kolizija/CCD/src/Shape.cpp" "/home/ana/Desktop/detekcija_kolizija/CCD/build/src/CMakeFiles/main.dir/Shape.cpp.o"
+  "/home/ana/Desktop/detekcija_kolizija/CCD/src/Target.cpp" "/home/ana/Desktop/detekcija_kolizija/CCD/build/src/CMakeFiles/main.dir/Target.cpp.o"
+  "/home/ana/Desktop/detekcija_kolizija/CCD/src/Wall.cpp" "/home/ana/Desktop/detekcija_kolizija/CCD/build/src/CMakeFiles/main.dir/Wall.cpp.o"
+  "/home/ana/Desktop/detekcija_kolizija/CCD/src/main.cpp" "/home/ana/Desktop/detekcija_kolizija/CCD/build/src/CMakeFiles/main.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

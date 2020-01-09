@@ -58,12 +58,6 @@ void Character::draw(sf::RenderWindow &window)
         else diff = 0;
 
 
-        m_shape.setPosition(position.x * PPM, position.y * PPM);
-        m_shape.setRotation((angle * 180) / M_PI);
-
-        m_shape.setFillColor(m_color);
-        m_shape.setSize(m_size);
-
         position.x = ( position.x - diff*MPP);
         m_sprite.setTexture(m_texture[m_current_texture]);
         //scale texture to shape size
@@ -75,7 +69,6 @@ void Character::draw(sf::RenderWindow &window)
         m_sprite.setRotation((angle * 180) / M_PI);
 
 
-        window.draw(m_shape);
         window.draw(m_sprite);
     }
 }

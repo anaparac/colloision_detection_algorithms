@@ -1,7 +1,7 @@
 add_executable(main main.cpp Bullet.h
                 Bullet.cpp Wall.h Wall.cpp  SFMLDebugDraw.h
                 SFMLDebugDraw.cpp Shape.h Shape.cpp  
-                Character.h Character.cpp Target.h Target.cpp ContactListener.h)
+                Character.h Character.cpp Target.h Target.cpp )
 
 
 set_target_properties(main

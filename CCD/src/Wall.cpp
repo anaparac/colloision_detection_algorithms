@@ -33,15 +33,6 @@ void Wall::draw(sf::RenderWindow &window)
         float angle = m_body->GetAngle();
         b2Vec2 position =  m_body->GetPosition();
 
-        m_shape.setPosition(position.x * PPM, position.y * PPM);
-        m_shape.setRotation((angle * 180) / M_PI);
-
-        //if(m_contacting){ m_color = sf::Color::Red; }
-        //else{ m_color = m_color_spec; }
-
-        m_shape.setFillColor(m_color);
-        m_shape.setSize(m_size);
-        m_shape.setOrigin(m_size.x/2, m_size.y/2);
         m_sprite.setTexture(m_texture);
         m_sprite.setScale((m_size.x / m_texture.getSize().x ),
                           (m_size.y / m_texture.getSize().y ));
@@ -49,8 +40,6 @@ void Wall::draw(sf::RenderWindow &window)
         m_sprite.setPosition((position.x- m_size.x*MPP/2) * PPM , (position.y- m_size.y*MPP/2)*PPM);
         m_sprite.setRotation((angle * 180) / M_PI);
 
-
-        window.draw(m_shape);
         window.draw(m_sprite);
     }
 }

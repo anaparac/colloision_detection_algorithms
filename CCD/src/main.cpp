@@ -8,7 +8,6 @@
 #include "Target.h"
 #include "Character.h"
 
-#include "ContactListener.h"
 
 #include <iostream>
 #include <vector>
@@ -61,7 +60,8 @@ void showInstructions()
     std::cout << " INSTRUCTIONS             "            << std::endl << std::endl;
     std::cout << " Draw target       : Key 1"            << std::endl;
     std::cout << " Fire bullet       : Key space"        << std::endl << std::endl;
-    //std::cout << " Debug draw        : Keys A, B, C";
+    std::cout << " Shapes            : Keys A"<< std::endl;
+    std::cout << " AABB              : Keys B"<< std::endl;
 }
 
 int main()
@@ -187,7 +187,7 @@ int main()
         for (int i = 0; i < m_vectorShapes.size(); i++)
             m_vectorShapes.at(i)->draw(m_window);
 
-        // Debug draw display
+        // draw shapes
         m_world.DrawDebugData();
 
 
