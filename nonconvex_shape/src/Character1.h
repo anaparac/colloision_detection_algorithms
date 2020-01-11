@@ -2,9 +2,9 @@
 #define CHARACTER1_H
 //BBox je samo jedan pravokutnik
 
-#include "Shape.h"
+#include "Player.h"
 
-class Character1 : public Shape
+class Character1 : public Player
 {
     public:
         Character1(float x, float y, b2World &world);
@@ -12,7 +12,7 @@ class Character1 : public Shape
         void draw(sf::RenderWindow &window);
         int getCurrTexture();
         void setCurrTexture(int idx);
-        sf::Sprite setSpriteScale(b2Vec2 b);
+
 
     protected:
 

@@ -3,9 +3,10 @@
 
 #include "SFMLDebugDraw.h"
 #include "Shape.h"
-#include "Rectangle.h"
-#include "Circle.h"
+#include "Wall.h"
 #include "Character1.h"
+#include "Character2.h"
+#include "Character3.h"
 #include "ContactListener.h"
 
 #include <iostream>
@@ -17,47 +18,6 @@
 
 #define WIDTH 800
 #define HEIGHT 600
-
-
-
-
-
-void createShape(std::vector<Shape* > &vectorShapes, b2World &world, int numberShape)
-{
-    if (numberShape < 1 || numberShape > 4)
-        return;
-
-    Shape*          shape;
-    b2Body*         body;
-    sf::Vector2f    position;
-
-    position.x = 50;
-    position.y = 50;
-
-    switch( numberShape )
-    {
-
-
-        case 2:
-            shape = static_cast<Circle*>( new Circle(world, position) );
-            break;
-
-
-
-    }
-
-    // Add shape -> mozda mogu ovo zamijeniti s iteriranjem po fixtureima i koristenjem userData
-    vectorShapes.push_back(shape);
-
-    // Initial move
-    b2Vec2 force;
-    force.x = 10;
-    force.y = 10;
-
-    body = vectorShapes.back()->getBody();
-    body->ApplyForce(force, body->GetWorldCenter(), true);
-}
-
 
 
 
@@ -93,20 +53,31 @@ int main()
     // Define world Box2D - Zero gravity
     b2World m_world(b2Vec2(0.f, 9.81f));
 
-    //collection for polygons
-    std::vector<Shape* > m_vectorShapes;
+    //collection for Wall
+    std::vector<Wall* > m_vectorWalls;
+    //collections for players
+    std::vector<Player* > m_vectorPlayer;
 
     // Create walls - static bodies
-    m_vectorShapes.push_back(new Rectangle(600.f, 400.f, sf::Vector2f(120.f, 40.f), m_world));
-    m_vectorShapes.push_back(new Rectangle(670.f, 450.f, sf::Vector2f(40.f, 120.f), m_world));
+    m_vectorWalls.push_back(new Wall(600.f, 400.f, sf::Vector2f(120.f, 40.f), m_world));
+    m_vectorWalls.push_back(new Wall(670.f, 450.f, sf::Vector2f(40.f, 120.f), m_world));
+    m_vectorWalls.push_back(new Wall(500.f, 500.f, sf::Vector2f(120.f, 40.f), m_world));
 
-    m_vectorShapes.push_back(new Rectangle(500.f, 500.f, sf::Vector2f(120.f, 40.f), m_world));
 
-    m_vectorShapes.push_back(new Rectangle(600.f, 600.f, sf::Vector2f(1200.f, 40.f), m_world));
-    m_vectorShapes.push_back(new Rectangle(1.f, 300.f, sf::Vector2f(1.f, 1200.f), m_world));
-    m_vectorShapes.push_back(new Rectangle(1200.f, 300.f, sf::Vector2f(1.f, 1200.f), m_world));
+    m_vectorWalls.push_back(new Wall(600.f, 600.f, sf::Vector2f(1200.f, 40.f), m_world));
+    m_vectorWalls.push_back(new Wall(1.f, 300.f, sf::Vector2f(1.f, 1200.f), m_world));
+    m_vectorWalls.push_back(new Wall(1200.f, 300.f, sf::Vector2f(1.f, 1200.f), m_world));
+
+    //najbolja pokrivenost(četiri poligona)
     Character1* ch1 = new Character1(100,100, m_world);
-    m_vectorShapes.push_back(ch1);
+    m_vectorPlayer.push_back(ch1);
+    //dva poligona
+    Character2* ch2 = new Character2(150,100, m_world);
+    m_vectorPlayer.push_back(ch2);
+    //jedan poligon
+    Character3* ch3 = new Character3(250,100, m_world);
+    m_vectorPlayer.push_back(ch3);
+    Player* ch = ch3;
 
 
     sf::ContextSettings settings;
@@ -115,18 +86,14 @@ int main()
     sf::RenderWindow m_window(sf::VideoMode(1200, 600), "Collision detection", sf::Style::Default, settings);
     m_window.setFramerateLimit(60);
 
-    // Initialize Debug draw -> poveze s sfml dijelom za iscrtavanje
+
     SFMLDebugDraw debugDraw(m_window);
     m_world.SetDebugDraw(&debugDraw);
 
-    //instantiate ContactListener
-    //at global scope
+
     ContactListener ContactListenerInstance;
     m_world.SetContactListener(&ContactListenerInstance);
 
-    // Set initial flags for what to draw ->
-    //zelimo da se iscrtaju geometrijski likovi kojima opisujemo nekonv. objekte
-    debugDraw.SetFlags(b2Draw::e_shapeBit);
 
     sf::Time elapsedTime;
     const float timePerFrame = 1.0 / 0.07;   //textures per millisecond
@@ -151,28 +118,31 @@ int main()
                 //jump
                 if (event.key.code == sf::Keyboard::Space){
                     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
-                        ch1->getBody()->ApplyForce(b2Vec2(100,-400),ch1->getBody()->GetWorldCenter(),true);
+                        ch->getBody()->ApplyForce(b2Vec2(100,-400),ch->getBody()->GetWorldCenter(),true);
 
                     else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
-                        ch1->getBody()->ApplyForce(b2Vec2(-100,-400),ch1->getBody()->GetWorldCenter(),true);
+                        ch->getBody()->ApplyForce(b2Vec2(-100,-400),ch->getBody()->GetWorldCenter(),true);
 
                     else
-                        ch1->getBody()->ApplyForce(b2Vec2(0,-400),ch1->getBody()->GetWorldCenter(),true);
+                        ch->getBody()->ApplyForce(b2Vec2(0,-400),ch->getBody()->GetWorldCenter(),true);
                 }
 
-
+                //switch player
+                if(event.key.code == sf::Keyboard::Down){
+                    if(ch->getName() == "Dino3")    ch = ch2;
+                    else if(ch->getName() == "Dino1")    ch = ch3;
+                    else if(ch->getName() == "Dino2")    ch = ch1;
+                }
 
                 //shapes
-                if(event.key.code == sf::Keyboard::A)
-                {
+                if(event.key.code == sf::Keyboard::A){
                     if(debugDraw.GetFlags() & b2Draw::e_shapeBit) debugDraw.ClearFlags(b2Draw::e_shapeBit);
                     else debugDraw.AppendFlags(b2Draw::e_shapeBit);
                 }
 
 
                 //aabb
-                if(event.key.code == sf::Keyboard::B)
-                {
+                if(event.key.code == sf::Keyboard::B){
                     if(debugDraw.GetFlags() & b2Draw::e_aabbBit) debugDraw.ClearFlags(b2Draw::e_aabbBit);
                     else debugDraw.AppendFlags(b2Draw::e_aabbBit);
                 }
@@ -180,24 +150,24 @@ int main()
             }
 
             //walk left/right + reverse texture
-            if (event.key.code == sf::Keyboard::Right){
-                ch1->getBody()->ApplyForce(b2Vec2(20,0),ch1->getBody()->GetWorldCenter(),true);
-                ch1->setSpriteScale(b2Vec2(1,1));
-
-            }
-            if (event.key.code == sf::Keyboard::Left){
-                 ch1->getBody()->ApplyForce(b2Vec2(-20,0),ch1->getBody()->GetWorldCenter(),true);
-                 ch1->setSpriteScale(b2Vec2(-1,1));
-
-            }
+            if (event.key.code == sf::Keyboard::Right)
+                ch->getBody()->ApplyForce(b2Vec2(20,0),ch->getBody()->GetWorldCenter(),true);
 
 
+            if (event.key.code == sf::Keyboard::Left)
+                 ch->getBody()->ApplyForce(b2Vec2(-20,0),ch->getBody()->GetWorldCenter(),true);
+
+
+
+            //animacija
             if(elapsedTime.asMilliseconds()>=timePerFrame){
-               ch1->setCurrTexture( (ch1->getCurrTexture() + 1) % 10);
+               ch->setCurrTexture( (ch->getCurrTexture() + 1) % 10);
                elapsedTime = clock.restart();
             }
 
         }
+
+        /////////////////////////////////////////////////////
 
         // Update window
         m_window.clear(sf::Color::Transparent);
@@ -212,11 +182,14 @@ int main()
             m_window.draw(s);
         }
 
+
+        //objekti scene
         // Draw Sprites
-        for (int i = 0; i < m_vectorShapes.size(); i++)
-            m_vectorShapes.at(i)->draw(m_window);
+        for (int i = 0; i < m_vectorWalls.size(); i++)
+            m_vectorWalls.at(i)->draw(m_window);
 
-
+        for (int i = 0; i < m_vectorPlayer.size(); i++)
+            m_vectorPlayer.at(i)->draw(m_window);
         //draw fixtures (shapes)
         m_world.DrawDebugData();
 
@@ -225,12 +198,13 @@ int main()
         for(int i = 0; i < ContactListenerInstance.m_pointCount; ++i){
             ContactPoint* contactPoint = ContactListenerInstance.m_points + i;
             if(contactPoint->state == b2_addState) debugDraw.DrawPoint(contactPoint->position, sf::Color::Cyan);
-            else if(contactPoint->state == b2_persistState) debugDraw.DrawPoint(contactPoint->position, sf::Color::Magenta);
+            else if(contactPoint->state == b2_persistState) debugDraw.DrawPoint(contactPoint->position, sf::Color::Red);
         }
         ContactListenerInstance.m_pointCount = 0; //ukloni sve dosadasnje tocke kontakta
 
 
         m_window.display();
+        ///////////////////////////////////////////////////
     }
 
     return 0;

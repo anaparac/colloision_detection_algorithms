@@ -1,7 +1,6 @@
-add_executable(main main.cpp  Circle.h
-                Circle.cpp Rectangle.h Rectangle.cpp  SFMLDebugDraw.h
-                SFMLDebugDraw.cpp Shape.h Shape.cpp Character1.h Character1.cpp
-	        Character2.h Character2.cpp ContactListener.h)
+add_executable(main main.cpp Wall.h Wall.cpp  SFMLDebugDraw.h
+                SFMLDebugDraw.cpp Player.h Player.cpp Character1.h Character1.cpp
+                Character2.h Character2.cpp Character3.h Character3.cpp ContactListener.h)
 
 
 set_target_properties(main

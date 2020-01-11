@@ -1,14 +1,12 @@
-#include "Character1.h"
+#include "Character3.h"
 
-
-Character1::Character1(float x, float y,  b2World &world)
+Character3::Character3(float x, float y, b2World &world)
 {
-    m_name = "Dino1";
+    m_name = "Dino3";
     m_size = sf::Vector2f(150.f, 100.0f);
     m_current_texture = 0;
 
     b2PolygonShape polygonShape;
-    b2CircleShape  circleShape;
     b2FixtureDef fixtureDef;
     b2BodyDef bodyDef;
 
@@ -17,34 +15,8 @@ Character1::Character1(float x, float y,  b2World &world)
 
     m_body = world.CreateBody(&bodyDef);
 
-
-    //head
-    circleShape.m_p = b2Vec2(-15*MPP,-25*MPP);
-    circleShape.m_radius =  45/2*MPP;
-    fixtureDef.shape = &circleShape;
-    fixtureDef.density = 0;
-    fixtureDef.restitution = 0;
-    fixtureDef.friction = 1;
-    m_body->CreateFixture(&fixtureDef);
-
-    //fixture 2
-    polygonShape.SetAsBox(40/2*MPP, 15/2*MPP, b2Vec2( -55*MPP,15*MPP), (-50*180)/M_PI );
+    polygonShape.SetAsBox(45*MPP,40*MPP, b2Vec2( -30*MPP,0*MPP),0);
     fixtureDef.shape = &polygonShape;
-    fixtureDef.density = 0;
-    fixtureDef.restitution = 0;
-    fixtureDef.friction = 1;
-    m_body->CreateFixture(&fixtureDef);
-    //fixture 3
-    polygonShape.SetAsBox( 40/2*MPP, 10/2*MPP, b2Vec2( -25*MPP,35*MPP), 0 );
-    fixtureDef.shape = &polygonShape;
-    fixtureDef.density = 0;
-    fixtureDef.restitution = 0;
-    fixtureDef.friction = 1;
-    m_body->CreateFixture(&fixtureDef);
-    //fixture 4
-    circleShape.m_p = b2Vec2(-30*MPP,15*MPP);
-    circleShape.m_radius =  40/2*MPP;
-    fixtureDef.shape = &circleShape;
     fixtureDef.density = 0;
     fixtureDef.restitution = 0;
     fixtureDef.friction = 1;
@@ -59,8 +31,7 @@ Character1::Character1(float x, float y,  b2World &world)
 
 }
 
-
-void Character1::draw(sf::RenderWindow &window)
+void Character3::draw(sf::RenderWindow &window)
 {
     if (m_body != NULL)
        {
@@ -79,4 +50,5 @@ void Character1::draw(sf::RenderWindow &window)
 
 
        }
+
 }
