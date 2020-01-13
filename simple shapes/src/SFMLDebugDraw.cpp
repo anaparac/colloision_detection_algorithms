@@ -3,7 +3,6 @@
 SFMLDebugDraw::SFMLDebugDraw(sf::RenderWindow &window) : m_window(&window) {}
 
 
-//neispunjeni, samo bridovi
 void SFMLDebugDraw::DrawPolygon(const b2Vec2* vertices, int32 vertexCount, const b2Color& color)
 {
 	sf::ConvexShape polygon(vertexCount);
@@ -88,36 +87,38 @@ void SFMLDebugDraw::DrawSegment(const b2Vec2& p1, const b2Vec2& p2, const b2Colo
 	m_window->draw(line, 2, sf::Lines);
 }
 
-//dvije normale smjera kretanja -> lokalni ks
+
 void SFMLDebugDraw::DrawTransform(const b2Transform& xf)
 {
     float lineLength = 0.5;
 
-	b2Vec2 xAxis = xf.p + lineLength * xf.q.GetXAxis();
-	sf::Vertex redLine[] =
-	{
-		sf::Vertex(SFMLDebugDraw::B2VecToSFVec(xf.p), sf::Color::Red),
-		sf::Vertex(SFMLDebugDraw::B2VecToSFVec(xAxis), sf::Color::Red)
-	};
+    b2Vec2 xAxis = xf.p + lineLength * xf.q.GetXAxis();
+    sf::Vertex redLine[] =
+    {
+        sf::Vertex(SFMLDebugDraw::B2VecToSFVec(xf.p), sf::Color::Red),
+        sf::Vertex(SFMLDebugDraw::B2VecToSFVec(xAxis), sf::Color::Red)
+    };
 
 
-	b2Vec2 yAxis = xf.p + lineLength * xf.q.GetYAxis();
-	sf::Vertex greenLine[] =
-	{
-		sf::Vertex(SFMLDebugDraw::B2VecToSFVec(xf.p), sf::Color::Green),
-		sf::Vertex(SFMLDebugDraw::B2VecToSFVec(yAxis), sf::Color::Green)
-	};
+    b2Vec2 yAxis = xf.p + lineLength * xf.q.GetYAxis();
+    sf::Vertex greenLine[] =
+    {
+        sf::Vertex(SFMLDebugDraw::B2VecToSFVec(xf.p), sf::Color::Green),
+        sf::Vertex(SFMLDebugDraw::B2VecToSFVec(yAxis), sf::Color::Green)
+    };
 
-	m_window->draw(redLine, 2, sf::Lines);
-	m_window->draw(greenLine, 2, sf::Lines);
+    m_window->draw(redLine, 2, sf::Lines);
+    m_window->draw(greenLine, 2, sf::Lines);
 }
 
 
 void SFMLDebugDraw::DrawPoint(const b2Vec2 &p, sf::Color color){
-    //const sf::Vertex point = sf::Vertex(SFMLDebugDraw::B2VecToSFVec(p));
+
     sf::CircleShape circle;
     circle.setFillColor(color);
-    circle.setPosition(SFMLDebugDraw::B2VecToSFVec(p));
     circle.setRadius(3.f);
+    auto p_ = SFMLDebugDraw::B2VecToSFVec(p);
+    circle.setPosition(p_.x-3/2,p_.y-3/2);
+
     m_window->draw(circle);
 }

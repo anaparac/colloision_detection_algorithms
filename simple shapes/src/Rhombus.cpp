@@ -27,9 +27,9 @@ Rhombus::Rhombus(b2World &world, sf::Vector2f center)
     m_body = world.CreateBody(&bodyDef);
 
     fixtureDef.shape = &polygonShape;
-    fixtureDef.friction = 1;
-    fixtureDef.restitution	= 1;
-    fixtureDef.density	= 0.7f;
+    fixtureDef.friction = 0.5;
+    fixtureDef.restitution	= 0.4;
+    fixtureDef.density	= 1.f;
 
     m_body->SetUserData(this);
     m_body->CreateFixture(&fixtureDef);

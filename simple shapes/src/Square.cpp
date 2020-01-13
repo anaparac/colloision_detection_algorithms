@@ -19,9 +19,10 @@ Square::Square(b2World &world, sf::Vector2f center)
     polygonShape.SetAsBox( m_size.x/2 * MPP, m_size.y/2 * MPP);
 
     fixtureDef.shape = &polygonShape;
-    fixtureDef.friction = 1;
-    fixtureDef.restitution	= 1.f;
-    fixtureDef.density	= 0.7f;
+    fixtureDef.friction = 0.5;
+    fixtureDef.restitution	= 0.4;
+    fixtureDef.density	= 1.f;
+
 
     m_body->SetUserData(this);
     m_body->CreateFixture(&fixtureDef);

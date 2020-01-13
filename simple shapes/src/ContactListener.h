@@ -16,11 +16,7 @@ public:
     int m_pointCount;
     ContactPoint m_points[300];
 
-
-   //override begin i end contact funkcije kako bi prikazali odgovor na koliziju
    void BeginContact(b2Contact* contact) {
-
-     //provjeri jesu li objekti u kontaktu dinamicki -> samo dinamickima mijenjam boju
      auto tipA = contact->GetFixtureA()->GetBody()->GetType();
      auto tipB = contact->GetFixtureB()->GetBody()->GetType();
      if ( tipA == b2_dynamicBody ) {
@@ -33,8 +29,6 @@ public:
    }
 
    void EndContact(b2Contact* contact) {
-
-       //provjeri jesu li objekti u kontaktu dinamicki
        auto tipA = contact->GetFixtureA()->GetBody()->GetType();
        auto tipB = contact->GetFixtureB()->GetBody()->GetType();
        if ( tipA == b2_dynamicBody ) {
@@ -45,6 +39,8 @@ public:
             static_cast<Shape*>( contact->GetFixtureB()->GetBody()->GetUserData() )->endContact();
        }
    }
+
+
 
    void PreSolve(b2Contact* contact, const b2Manifold* oldManifold){
         const b2Manifold* manifold = contact->GetManifold();
@@ -62,7 +58,6 @@ public:
             cp->state = state2[i];
             ++m_pointCount;
         }
-
    }
 
 

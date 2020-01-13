@@ -30,23 +30,23 @@ public:
 		return sf::Vector2f(vector.x * (scaleToPixels ? sfdd::SCALE : 1.f), vector.y * (scaleToPixels ? sfdd::SCALE : 1.f));
 	}
 
-    // iscrta konveksni poligon zadan vektorom tocaka u smjeru CCW
+    // iscrta konveksni poligon zadan vektorom tocaka u smjeru CCW (bridovi)
 	void DrawPolygon(const b2Vec2* vertices, int32 vertexCount, const b2Color& color);
 
-    // Draw a solid closed polygon provided in CCW order.
+    // iscrta konveksni poligon zadan vektorom tocaka u smjeru CCW
 	void DrawSolidPolygon(const b2Vec2* vertices, int32 vertexCount, const b2Color& color);
 
-    // Draw a circle.
+    //kružnica
 	void DrawCircle(const b2Vec2& center, float32 radius, const b2Color& color);
 
-    // Draw a solid circle.
+    //krug
 	void DrawSolidCircle(const b2Vec2& center, float32 radius, const b2Vec2& axis, const b2Color& color);
 
     // iscrta duzinu zadanu dvjema tockama
-	void DrawSegment(const b2Vec2& p1, const b2Vec2& p2, const b2Color& color);
+    void DrawSegment(const b2Vec2& p1, const b2Vec2& p2, const b2Color& color);
 
-    /// Draw a transform.
-	void DrawTransform(const b2Transform& xf);
+
+    void DrawTransform(const b2Transform& xf);
 
     //iscrta tocku sa zadanim (X,Y) koordinatama u world-u
     void DrawPoint(const b2Vec2& p, sf::Color color);

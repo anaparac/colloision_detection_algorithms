@@ -10,9 +10,6 @@
 #include "Rhombus.h"
 #include "ContactListener.h"
 
-#include <iostream>
-#include <ctime>
-#include <typeinfo>
 #include <vector>
 
 #define TIMESTEP 1.0f/80.0f     // Refresh time
@@ -32,15 +29,13 @@ int randomNumber(int min, int max)
 
 void createShape(std::vector<Shape* > &vectorShapes, b2World &world, int numberShape)
 {
-    if (numberShape < 1 || numberShape > 4)
-        return;
 
     Shape*          shape;
     b2Body*         body;
     sf::Vector2f    position;
 
     position.x = randomNumber(50, WIDTH - 50);
-    position.y = randomNumber(50, HEIGHT - 50);
+    position.y = randomNumber(50, 100);
 
     switch( numberShape )
     {
@@ -75,7 +70,46 @@ void createShape(std::vector<Shape* > &vectorShapes, b2World &world, int numberS
 }
 
 
+void createWalls(std::vector<Shape* > &vectorShapes, b2World &world){
+    // Create walls - static bodies
+    vectorShapes.push_back(new Rectangle(400.f, 1.f, sf::Vector2f(800.f, 15.f), world));
+    vectorShapes.push_back(new Rectangle(400.f, 600.f, sf::Vector2f(800.f, 15.f), world));
+    vectorShapes.push_back(new Rectangle(1.f, 300.f, sf::Vector2f(15.f, 800.f), world));
+    vectorShapes.push_back(new Rectangle(800.f, 300.f, sf::Vector2f(15.f, 800.f), world));
 
+    //Create platforms
+    vectorShapes.push_back(new Rectangle(80.f, 200.f, sf::Vector2f(150.f, 15.f), world));
+    vectorShapes.push_back(new Rectangle(200.f, 300.f, sf::Vector2f(100.f, 15.f), world));
+    vectorShapes.push_back(new Rectangle(300.f, 400.f, sf::Vector2f(100.f, 15.f), world));
+    vectorShapes.push_back(new Rectangle(720.f, 200.f, sf::Vector2f(150.f, 15.f), world));
+    vectorShapes.push_back(new Rectangle(600.f, 300.f, sf::Vector2f(100.f, 15.f), world));
+    vectorShapes.push_back(new Rectangle(500.f, 400.f, sf::Vector2f(100.f, 15.f), world));
+
+}
+
+void drawScene(sf::RenderWindow &window, b2World &world, SFMLDebugDraw &debugDraw,
+               std::vector<Shape*> &vectorShapes, ContactListener &ContactListenerInstance){
+
+    window.clear(sf::Color::Transparent);
+    // Update world Box2D
+    world.Step(TIMESTEP, VELITER, POSITER);
+    // Draw vector shapes
+    for (int i = 0; i < vectorShapes.size(); i++)
+        vectorShapes[i]->draw(window);
+
+
+    ///draw contact points
+    for(int i = 0; i < ContactListenerInstance.m_pointCount; ++i){
+        ContactPoint* contactPoint = ContactListenerInstance.m_points + i;
+        if(contactPoint->state == b2_addState) debugDraw.DrawPoint(contactPoint->position, sf::Color::Cyan);
+        else if(contactPoint->state == b2_persistState) debugDraw.DrawPoint(contactPoint->position, sf::Color::White);
+    }
+    ContactListenerInstance.m_pointCount = 0;
+
+    // Debug draw display
+    world.DrawDebugData();
+    window.display();
+}
 
 void showInstructions()
 {
@@ -89,12 +123,11 @@ void showInstructions()
     std::cout << " Draw rhombus      : Key 4"            << std::endl;
     std::cout << " Random movement   : Key space"        << std::endl << std::endl;
 
-    std::cout << " Debug draw        : Keys A, B, C";
+    std::cout << " Debug draw        : Keys A, B";
 }
 
 int main()
 {
-    srand(time(0));
 
     // Instructions
     showInstructions();
@@ -103,12 +136,6 @@ int main()
     b2World m_world(b2Vec2(0.f, 9.81f));
 
     std::vector<Shape* > m_vectorShapes;
-
-    // Create walls - static bodies
-    m_vectorShapes.push_back(new Rectangle(400.f, 1.f, sf::Vector2f(800.f, 15.f), m_world));
-    m_vectorShapes.push_back(new Rectangle(400.f, 600.f, sf::Vector2f(800.f, 15.f), m_world));
-    m_vectorShapes.push_back(new Rectangle(1.f, 300.f, sf::Vector2f(15.f, 800.f), m_world));
-    m_vectorShapes.push_back(new Rectangle(800.f, 300.f, sf::Vector2f(15.f, 800.f), m_world));
 
     sf::ContextSettings settings;
     settings.antialiasingLevel = 8;
@@ -121,12 +148,13 @@ int main()
     m_world.SetDebugDraw(&debugDraw);
 
     //instantiate ContactListener
-    //at global scope
     ContactListener ContactListenerInstance;
     m_world.SetContactListener(&ContactListenerInstance);
 
-    // Set initial flags for what to draw
-    debugDraw.SetFlags(b2Draw::e_shapeBit);
+    //Create walls and platforms
+    createWalls(m_vectorShapes, m_world);
+
+
 
     while (m_window.isOpen())
     {
@@ -184,33 +212,8 @@ int main()
             }
 
         }
-
-        // Update window
-        m_window.clear(sf::Color::Transparent);
-
-        // Update world Box2D
-        m_world.Step(TIMESTEP, VELITER, POSITER);
-
-        // Draw vector shapes
-        for (int i = 0; i < m_vectorShapes.size(); i++)
-            m_vectorShapes.at(i)->draw(m_window);
-
-
-        ///draw contact points
-        ///
-        for(int i = 0; i < ContactListenerInstance.m_pointCount; ++i){
-            ContactPoint* contactPoint = ContactListenerInstance.m_points + i;
-            if(contactPoint->state == b2_addState) debugDraw.DrawPoint(contactPoint->position, sf::Color::Cyan);
-            else if(contactPoint->state == b2_persistState) debugDraw.DrawPoint(contactPoint->position, sf::Color::White);
-        }
-        ContactListenerInstance.m_pointCount = 0; //ukloni sve dosadasnje tocke kontakta
-
-        ///////////////////////////
-        // Debug draw display
-        m_world.DrawDebugData();
-
-
-        m_window.display();
+        //Update scene
+        drawScene(m_window, m_world, debugDraw, m_vectorShapes, ContactListenerInstance);
     }
 
     return 0;
