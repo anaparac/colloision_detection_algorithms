@@ -18,9 +18,7 @@ Wall::Wall(float x, float y, sf::Vector2f size, b2World& world)
     polygonShape.SetAsBox( m_size.x/2 * MPP, m_size.y/2 * MPP);
     fixtureDef.shape = &polygonShape;
 
-    //m_body->SetUserData(this);
     m_body->CreateFixture(&fixtureDef);
-    //ucitaj texture
 
     m_texture.loadFromFile("rock.png");
 

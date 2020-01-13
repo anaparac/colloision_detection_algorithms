@@ -113,11 +113,4 @@ void SFMLDebugDraw::DrawTransform(const b2Transform& xf)
 }
 
 
-void SFMLDebugDraw::DrawPoint(const b2Vec2 &p, sf::Color color){
-    //const sf::Vertex point = sf::Vertex(SFMLDebugDraw::B2VecToSFVec(p));
-    sf::CircleShape circle;
-    circle.setFillColor(color);
-    circle.setPosition(SFMLDebugDraw::B2VecToSFVec(p));
-    circle.setRadius(3.f);
-    m_window->draw(circle);
-}
+

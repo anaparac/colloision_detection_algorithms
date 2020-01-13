@@ -6,8 +6,6 @@ Bullet::Bullet(b2World &world, sf::Vector2f center)
     m_size = sf::Vector2f(15,15);
     m_radius = m_size.x / 2;
 
-
-
     // Create body Box2D
     b2CircleShape circleShape;
     b2BodyDef bodyDef;
@@ -20,23 +18,20 @@ Bullet::Bullet(b2World &world, sf::Vector2f center)
 
 
     //////////////////////////////////
-    ///enable bullet mode to apply CCD      -> na pritisak neke tipke s tipkovnice
-    //bodyDef.bullet = false;
-    bodyDef.bullet = true;
+    ///enable bullet mode to apply CCD
+    bodyDef.bullet = false;
+    //bodyDef.bullet = true;
     //////////////////////////////////
 
 
 
     m_body = world.CreateBody(&bodyDef);
-    m_body->SetLinearVelocity(b2Vec2(10,0));    //bullet x-vel=10
-
+    m_body->ApplyForce(b2Vec2(100,0), m_body->GetWorldCenter(), true);
     fixtureDef.shape = &circleShape;
     fixtureDef.friction = 1;
     fixtureDef.restitution	= 0;
     fixtureDef.density	= 0.7f;
     m_body->CreateFixture(&fixtureDef);
-
-    //ucitaj texture
 
     m_texture.loadFromFile("flash1.png");
     m_body->SetUserData(this);

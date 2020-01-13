@@ -3,9 +3,7 @@
 Target::Target(float x, float y, sf::Vector2f size, b2World& world) //x = 600, y=300
 {
     m_name = "Target";
-    m_size = size;  //size prilagoditi velicini sprite-a
-
-
+    m_size = size;
     m_color = sf::Color::Transparent;
 
     // Create dynamic box2D  body
@@ -23,10 +21,7 @@ Target::Target(float x, float y, sf::Vector2f size, b2World& world) //x = 600, y
     fixtureDef.restitution	= 0.f;
     fixtureDef.density	= 0.3f;
 
-    m_body->SetUserData(this);
     m_body->CreateFixture(&fixtureDef);
-
-    //ucitaj texture
 
     m_texture.loadFromFile("vase.png");
 

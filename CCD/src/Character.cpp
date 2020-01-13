@@ -3,7 +3,7 @@
 Character::Character(float x, float y, sf::Vector2f size, b2World& world)
 {
     m_name = "Character";
-    m_size = size;  //velicinu sprite prilagodimo velicini shape.a (w = m_size.x; h = m_size.y)
+    m_size = size;
     m_current_texture = 0;
     m_color = sf::Color::Transparent;
 

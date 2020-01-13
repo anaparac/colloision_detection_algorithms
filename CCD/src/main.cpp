@@ -23,16 +23,10 @@
 
 void createShape(std::vector<Shape* > &vectorShapes, b2World &world, int numberShape)
 {
-    if (numberShape < 1 || numberShape > 2)
-        return;
 
     Shape*          shape;
-    b2Body*         body;
     sf::Vector2f    position;
-    b2Vec2          force;
-    force = b2Vec2(0,0);
 
-    //umjesto square kreirati target
     if(numberShape == 1){
         position.x = 600;
         position.y = 300;
@@ -42,15 +36,10 @@ void createShape(std::vector<Shape* > &vectorShapes, b2World &world, int numberS
     else if(numberShape == 2){
         position.x = 150;
         position.y = 510;
-        force.x =100, 0;
         shape = static_cast<Bullet*>( new Bullet(world, position) );
     }
 
     vectorShapes.push_back(shape);
-
-    //add force to bullet
-    body = vectorShapes.back()->getBody();
-    body->ApplyForce(force, body->GetWorldCenter(), true);
 }
 
 
@@ -73,6 +62,7 @@ int main()
 
     showInstructions();
 
+    //background
     sf::Texture tex;
     tex.loadFromFile("background.png");
     sf::Sprite BGsprite;
@@ -98,7 +88,6 @@ int main()
     //character
     Character* character = new Character(80.f, 500.f, sf::Vector2f(120.f, 200.f), m_world);
     m_vectorShapes.push_back(character);
-
 
 
 
