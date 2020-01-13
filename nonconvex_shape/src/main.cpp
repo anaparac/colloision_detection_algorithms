@@ -30,6 +30,36 @@ void showInstructions()
     std::cout << " Draw aabb       : Keys B"<<std::endl;
 }
 
+
+
+void createWalls(std::vector<Wall*> &vectorWalls, b2World &world){
+    // Create walls - static bodies
+    vectorWalls.push_back(new Wall(600.f, 400.f, sf::Vector2f(120.f, 40.f), world));
+    vectorWalls.push_back(new Wall(670.f, 450.f, sf::Vector2f(40.f, 120.f), world));
+    vectorWalls.push_back(new Wall(500.f, 500.f, sf::Vector2f(120.f, 40.f), world));
+
+
+    vectorWalls.push_back(new Wall(600.f, 600.f, sf::Vector2f(1200.f, 40.f), world));
+    vectorWalls.push_back(new Wall(1.f, 300.f, sf::Vector2f(1.f, 1200.f), world));
+    vectorWalls.push_back(new Wall(1200.f, 300.f, sf::Vector2f(1.f, 1200.f), world));
+}
+
+
+
+Player* createPlayers(std::vector<Player*> &vectorPlayer, b2World &world){
+
+    //najbolja pokrivenost(četiri poligona)
+    vectorPlayer.push_back(new Character1(100,100, world));
+    //dva poligona
+    vectorPlayer.push_back(new Character2(150,100, world));
+    //jedan poligon
+    Character3* ch3 = new Character3(250,100, world);
+    vectorPlayer.push_back(ch3);
+    return ch3;
+}
+
+
+
 int main()
 {
 
@@ -58,26 +88,9 @@ int main()
     //collections for players
     std::vector<Player* > m_vectorPlayer;
 
-    // Create walls - static bodies
-    m_vectorWalls.push_back(new Wall(600.f, 400.f, sf::Vector2f(120.f, 40.f), m_world));
-    m_vectorWalls.push_back(new Wall(670.f, 450.f, sf::Vector2f(40.f, 120.f), m_world));
-    m_vectorWalls.push_back(new Wall(500.f, 500.f, sf::Vector2f(120.f, 40.f), m_world));
+    createWalls(m_vectorWalls, m_world);
 
-
-    m_vectorWalls.push_back(new Wall(600.f, 600.f, sf::Vector2f(1200.f, 40.f), m_world));
-    m_vectorWalls.push_back(new Wall(1.f, 300.f, sf::Vector2f(1.f, 1200.f), m_world));
-    m_vectorWalls.push_back(new Wall(1200.f, 300.f, sf::Vector2f(1.f, 1200.f), m_world));
-
-    //najbolja pokrivenost(četiri poligona)
-    Character1* ch1 = new Character1(100,100, m_world);
-    m_vectorPlayer.push_back(ch1);
-    //dva poligona
-    Character2* ch2 = new Character2(150,100, m_world);
-    m_vectorPlayer.push_back(ch2);
-    //jedan poligon
-    Character3* ch3 = new Character3(250,100, m_world);
-    m_vectorPlayer.push_back(ch3);
-    Player* ch = ch3;
+    Player* ch = createPlayers(m_vectorPlayer, m_world);
 
 
     sf::ContextSettings settings;
@@ -129,9 +142,10 @@ int main()
 
                 //switch player
                 if(event.key.code == sf::Keyboard::Down){
-                    if(ch->getName() == "Dino3")    ch = ch2;
-                    else if(ch->getName() == "Dino1")    ch = ch3;
-                    else if(ch->getName() == "Dino2")    ch = ch1;
+
+                    if(ch->getName() == "Dino3")    ch = m_vectorPlayer[1];
+                    else if(ch->getName() == "Dino1")    ch = m_vectorPlayer[2];
+                    else if(ch->getName() == "Dino2")    ch = m_vectorPlayer[0];
                 }
 
                 //shapes
@@ -149,7 +163,7 @@ int main()
 
             }
 
-            //walk left/right + reverse texture
+            //walk left/right
             if (event.key.code == sf::Keyboard::Right)
                 ch->getBody()->ApplyForce(b2Vec2(20,0),ch->getBody()->GetWorldCenter(),true);
 
@@ -168,7 +182,7 @@ int main()
         }
 
         /////////////////////////////////////////////////////
-
+        ///Update scene
         // Update window
         m_window.clear(sf::Color::Transparent);
 
@@ -186,10 +200,10 @@ int main()
         //objekti scene
         // Draw Sprites
         for (int i = 0; i < m_vectorWalls.size(); i++)
-            m_vectorWalls.at(i)->draw(m_window);
+            m_vectorWalls[i]->draw(m_window);
 
         for (int i = 0; i < m_vectorPlayer.size(); i++)
-            m_vectorPlayer.at(i)->draw(m_window);
+            m_vectorPlayer[i]->draw(m_window);
         //draw fixtures (shapes)
         m_world.DrawDebugData();
 

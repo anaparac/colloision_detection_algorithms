@@ -15,8 +15,7 @@ class Wall
         Wall(float x, float y, sf::Vector2f size, b2World &world);
 
         void draw(sf::RenderWindow &window);
-        b2Body* getBody();
-        void setBody(b2Body* body);
+
 
     protected:
 

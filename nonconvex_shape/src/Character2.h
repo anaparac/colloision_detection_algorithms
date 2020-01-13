@@ -12,10 +12,6 @@ class Character2 : public Player
         void draw(sf::RenderWindow &window);
 
     protected:
-        std::vector<sf::Texture>         m_texture;
-        sf::Sprite                       m_sprite;
-        int                              m_current_texture;
-        b2Vec2                           m_scale;
 
     private:
 };

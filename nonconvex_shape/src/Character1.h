@@ -16,10 +16,7 @@ class Character1 : public Player
 
     protected:
 
-        std::vector<sf::Texture>         m_texture;
-        sf::Sprite                       m_sprite;
-        int                              m_current_texture;
-        b2Vec2                           m_scale;
+
     private:
 };
 

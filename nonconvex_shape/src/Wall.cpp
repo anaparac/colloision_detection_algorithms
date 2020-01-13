@@ -34,17 +34,6 @@ Wall::Wall(float x, float y, sf::Vector2f size, b2World& world)
 
 
 
-b2Body* Wall::getBody()
-{
-    return m_body;
-}
-
-void Wall::setBody(b2Body* body)
-{
-    m_body = body;
-}
-
-
 
 void Wall::draw(sf::RenderWindow &window)
 {

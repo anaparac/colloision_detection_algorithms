@@ -2,7 +2,8 @@
 
 Player::Player(){
     // Size shape
-    m_size = sf::Vector2f(50.f, 50.0f);
+    m_size = sf::Vector2f(150.f, 100.0f);
+    m_current_texture = 0;
     m_contacting = 0;
     m_size = sf::Vector2f(150.f, 100.0f);
     m_current_texture = 0;

@@ -3,8 +3,6 @@
 Character3::Character3(float x, float y, b2World &world)
 {
     m_name = "Dino3";
-    m_size = sf::Vector2f(150.f, 100.0f);
-    m_current_texture = 0;
 
     b2PolygonShape polygonShape;
     b2FixtureDef fixtureDef;
