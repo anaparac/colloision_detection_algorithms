@@ -47,10 +47,26 @@ void showInstructions()
 {
     std::cout << std::endl << std::endl;
     std::cout << " INSTRUCTIONS             "            << std::endl << std::endl;
-    std::cout << " Draw target       : Key 1"            << std::endl;
+    std::cout << " Add target       : Key 1"            << std::endl;
     std::cout << " Fire bullet       : Key space"        << std::endl << std::endl;
     std::cout << " Shapes            : Keys A"<< std::endl;
     std::cout << " AABB              : Keys B"<< std::endl;
+}
+
+void drawScene(sf::RenderWindow &window,b2World &world, std::vector<Shape* > vectorShapes, sf::Sprite &BGsprite){
+
+    window.clear(sf::Color::Transparent);
+    // Update world Box2D
+    world.Step(TIMESTEP, VELITER, POSITER);
+
+    window.draw(BGsprite);
+    // Draw vector shapes
+    for (int i = 0; i < vectorShapes.size(); i++)
+        vectorShapes[i]->draw(window);
+
+    // draw shapes
+    world.DrawDebugData();
+    window.display();
 }
 
 int main()
@@ -164,23 +180,7 @@ int main()
 
         }
 
-        // Update window
-        m_window.clear(sf::Color::Transparent);
-
-
-        // Update world Box2D
-        m_world.Step(TIMESTEP, VELITER, POSITER);
-
-        m_window.draw(BGsprite);
-        // Draw vector shapes
-        for (int i = 0; i < m_vectorShapes.size(); i++)
-            m_vectorShapes.at(i)->draw(m_window);
-
-        // draw shapes
-        m_world.DrawDebugData();
-
-
-        m_window.display();
+       drawScene(m_window, m_world, m_vectorShapes, BGsprite);
     }
 
     return 0;
