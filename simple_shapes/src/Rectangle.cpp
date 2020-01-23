@@ -1,4 +1,4 @@
-#include "Rectangle.h"
+#include "../include/Rectangle.h"
 
 Rectangle::Rectangle(float x, float y, sf::Vector2f size, b2World& world)
 {

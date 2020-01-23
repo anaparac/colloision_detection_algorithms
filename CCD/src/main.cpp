@@ -1,12 +1,12 @@
 #include <SFML/Graphics.hpp>
 #include <Box2D/Box2D.h>
 
-#include "SFMLDebugDraw.h"
-#include "Shape.h"
-#include "Wall.h"
-#include "Bullet.h"
-#include "Target.h"
-#include "Character.h"
+#include "../include/SFMLDebugDraw.h"
+#include "../include/Shape.h"
+#include "../include/Wall.h"
+#include "../include/Bullet.h"
+#include "../include/Target.h"
+#include "../include/Character.h"
 
 
 #include <iostream>

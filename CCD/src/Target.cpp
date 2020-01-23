@@ -1,4 +1,4 @@
-#include "Target.h"
+#include "../include/Target.h"
 
 Target::Target(float x, float y, sf::Vector2f size, b2World& world) //x = 600, y=300
 {

@@ -1,13 +1,13 @@
 #include <SFML/Graphics.hpp>
 #include <Box2D/Box2D.h>
 
-#include "SFMLDebugDraw.h"
-#include "Shape.h"
-#include "Wall.h"
-#include "Character1.h"
-#include "Character2.h"
-#include "Character3.h"
-#include "ContactListener.h"
+#include "../include/SFMLDebugDraw.h"
+#include "../include/Shape.h"
+#include "../include/Wall.h"
+#include "../include/Character1.h"
+#include "../include/Character2.h"
+#include "../include/Character3.h"
+#include "../include/ContactListener.h"
 
 #include <iostream>
 #include <vector>

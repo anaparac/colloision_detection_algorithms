@@ -1,4 +1,4 @@
-#include "Wall.h"
+#include "../include/Wall.h"
 
 Wall::Wall(float x, float y, sf::Vector2f size, b2World& world)
 {

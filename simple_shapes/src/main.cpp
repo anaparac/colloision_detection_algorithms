@@ -1,14 +1,14 @@
 #include <SFML/Graphics.hpp>
 #include <Box2D/Box2D.h>
 
-#include "SFMLDebugDraw.h"
-#include "Shape.h"
-#include "Rectangle.h"
-#include "Square.h"
-#include "Circle.h"
-#include "Triangle.h"
-#include "Rhombus.h"
-#include "ContactListener.h"
+#include "../include/SFMLDebugDraw.h"
+#include "../include/Shape.h"
+#include "../include/Rectangle.h"
+#include "../include/Square.h"
+#include "../include/Circle.h"
+#include "../include/Triangle.h"
+#include "../include/Rhombus.h"
+#include "../include/ContactListener.h"
 
 #include <vector>
 

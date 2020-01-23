@@ -1,4 +1,4 @@
-#include "Square.h"
+#include "../include/Square.h"
 
 Square::Square(b2World &world, sf::Vector2f center)
 {

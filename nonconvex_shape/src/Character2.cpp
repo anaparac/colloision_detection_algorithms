@@ -1,4 +1,4 @@
-#include "Character2.h"
+#include "../include/Character2.h"
 
 Character2::Character2(float x, float y, b2World &world)
 {

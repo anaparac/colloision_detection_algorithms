@@ -1,4 +1,4 @@
-#include "Rhombus.h"
+#include "../include/Rhombus.h"
 
 Rhombus::Rhombus(b2World &world, sf::Vector2f center)
 {

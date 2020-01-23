@@ -1,4 +1,4 @@
-#include "SFMLDebugDraw.h"
+#include "../include/SFMLDebugDraw.h"
 
 SFMLDebugDraw::SFMLDebugDraw(sf::RenderWindow &window) : m_window(&window) {}
 

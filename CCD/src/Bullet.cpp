@@ -1,4 +1,4 @@
-#include "Bullet.h"
+#include "../include/Bullet.h"
 
 Bullet::Bullet(b2World &world, sf::Vector2f center)
 {

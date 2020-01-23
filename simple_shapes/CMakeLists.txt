@@ -1,15 +1,23 @@
-cmake_minimum_required(VERSION 3.2)
-
-project(simple-shapes)
-
-set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
-find_package(SFML COMPONENTS network audio graphics window system REQUIRED)
-find_package(Box2D REQUIRED)
+add_executable(simple src/main.cpp include/Square.h src/Square.cpp include/Circle.h
+                src/Circle.cpp include/Rectangle.h src/Rectangle.cpp include/Rhombus.h src/Rhombus.cpp 
+		include/SFMLDebugDraw.h
+                src/SFMLDebugDraw.cpp include/Shape.h src/Shape.cpp include/Triangle.h src/Triangle.cpp 
+		include/ContactListener.h)
 
 
+set_target_properties(simple
+  PROPERTIES
+    CXX_STANDARD 14
+    CXX_EXTENSIONS OFF
+    CXX_STANDARD_REQUIRED ON
+  )
 
-if(BOX2D_FOUND)
-    include_directories(${BOX2D_INCLUDE_DIR})
-endif()
 
-add_subdirectory(src)
+target_link_libraries(simple sfml-graphics  sfml-window sfml-system ${BOX2D_LIBRARIES})
+
+
+#add_custom_command(
+#        TARGET main POST_BUILD
+#        COMMAND ${CMAKE_COMMAND} -E copy
+#		${CMAKE_SOURCE_DIR}
+#                ${CMAKE_CURRENT_BINARY_DIR} )

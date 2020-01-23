@@ -1,4 +1,4 @@
-#include "Triangle.h"
+#include "../include/Triangle.h"
 
 Triangle::Triangle(b2World &world, sf::Vector2f center)
 {
