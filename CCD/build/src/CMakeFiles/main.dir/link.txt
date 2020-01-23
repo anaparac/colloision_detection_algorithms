@@ -1,1 +1,0 @@
-/usr/bin/c++      CMakeFiles/main.dir/main.cpp.o CMakeFiles/main.dir/Bullet.cpp.o CMakeFiles/main.dir/Wall.cpp.o CMakeFiles/main.dir/SFMLDebugDraw.cpp.o CMakeFiles/main.dir/Shape.cpp.o CMakeFiles/main.dir/Character.cpp.o CMakeFiles/main.dir/Target.cpp.o  -o main -rdynamic -lsfml-graphics -lsfml-window -lsfml-system -lBox2D 

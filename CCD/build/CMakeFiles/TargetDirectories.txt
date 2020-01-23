@@ -1,5 +1,0 @@
-/home/ana/Desktop/detekcija_kolizija/CCD/build/CMakeFiles/edit_cache.dir
-/home/ana/Desktop/detekcija_kolizija/CCD/build/CMakeFiles/rebuild_cache.dir
-/home/ana/Desktop/detekcija_kolizija/CCD/build/src/CMakeFiles/rebuild_cache.dir
-/home/ana/Desktop/detekcija_kolizija/CCD/build/src/CMakeFiles/edit_cache.dir
-/home/ana/Desktop/detekcija_kolizija/CCD/build/src/CMakeFiles/main.dir
