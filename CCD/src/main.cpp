@@ -53,7 +53,7 @@ void showInstructions()
     std::cout << " AABB              : Keys B"<< std::endl;
 }
 
-void drawScene(sf::RenderWindow &window,b2World &world, std::vector<Shape* > vectorShapes, sf::Sprite &BGsprite){
+void drawScene(sf::RenderWindow &window, b2World &world, std::vector<Shape* > vectorShapes, sf::Sprite &BGsprite){
 
     window.clear(sf::Color::Transparent);
     // Update world Box2D
@@ -133,7 +133,9 @@ int main()
                     createShape(m_vectorShapes, m_world, 1);
 
                 if (event.key.code == sf::Keyboard::Space){
-                    animate = 1;
+                    if(!character->is_in_animation())
+                        character->startAnimation();
+                 //   animate = 1;
                 }
 
 
@@ -154,31 +156,35 @@ int main()
             }
 
 
-            //update animation
-            if(animate){
+//            //update animation
+//            if(animate){
 
-                if(prepare_shoot){
+//                if(prepare_shoot){
 
-                    if(elapsedTime.asMilliseconds()>=timePerFrame){
-                        character->setCurrTexture( character->getCurrTexture() + 1 );
-                        elapsedTime = clock.restart();
-                    }
-                    if(character->getCurrTexture()  == 5)    {prepare_shoot = 0; shoot = 1;}
-                }
+//                    if(elapsedTime.asMilliseconds()>=timePerFrame){
+//                        character->setCurrTexture( character->getCurrTexture() + 1 );
+//                        elapsedTime = clock.restart();
+//                    }
+//                    if(character->getCurrTexture()  == 5)    {prepare_shoot = 0; shoot = 1;}
+//                }
 
-                if(shoot){ createShape(m_vectorShapes, m_world, 2); shoot = 0; }
+//                if(shoot){ createShape(m_vectorShapes, m_world, 2); shoot = 0; }
 
-                if(!prepare_shoot){
-                    if(elapsedTime.asMilliseconds()>=timePerFrame){
-                        character->setCurrTexture( character->getCurrTexture() - 1 );
-                        elapsedTime = clock.restart();
-                    }
-                    if(character->getCurrTexture()  == 0)    {prepare_shoot = 1; animate = 0;}
-                }
-            }
+//                if(!prepare_shoot){
+//                    if(elapsedTime.asMilliseconds()>=timePerFrame){
+//                        character->setCurrTexture( character->getCurrTexture() - 1 );
+//                        elapsedTime = clock.restart();
+//                    }
+//                    if(character->getCurrTexture()  == 0)    {prepare_shoot = 1; animate = 0;}
+//                }
+//            }
 
 
         }
+
+        bool done = character->animate(elapsedTime);
+        if(done)
+            createShape(m_vectorShapes, m_world, 2);
 
        drawScene(m_window, m_world, m_vectorShapes, BGsprite);
     }

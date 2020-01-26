@@ -1,7 +1,13 @@
 #include "../include/Character.h"
+#include <iostream>
 
 Character::Character(float x, float y, sf::Vector2f size, b2World& world)
 {
+    // animacija
+    m_animation = false;
+    m_anim_time =sf::Time::Zero;
+    m_total_time = sf::seconds(1); // ukupno vrijeme animacije
+
     m_name = "Character";
     m_size = size;
     m_current_texture = 0;
@@ -38,12 +44,45 @@ Character::Character(float x, float y, sf::Vector2f size, b2World& world)
     texture.loadFromFile("green_fire_6.png");
     m_texture.push_back(texture);
 
+    // Za anmimaciju
+    m_no_frames = m_texture.size();
+    std::cout << "Broj sličica = " << m_no_frames << std::endl;
 }
 int Character::getCurrTexture(){
     return m_current_texture;
 }
 void Character::setCurrTexture(int idx){
     m_current_texture = idx;
+}
+
+// Započnimo animaciju.
+void Character::startAnimation()
+{
+    m_current_texture = 0;
+    m_anim_time =sf::Time::Zero;
+    m_animation = true;
+}
+
+// Unutar animacije izvrti sličice dok animacija na završi.
+bool Character::animate(sf::Time dt)
+{
+    if(!m_animation) return false;
+
+    float DT = m_total_time.asSeconds()/(m_no_frames+1);
+    //std::cout  << "DT = " << DT << "\n";
+    m_anim_time += dt;
+    int N = std::floor(m_anim_time.asSeconds()/DT);
+//    std::cout  << "N = " << N << "\n";
+    if(N == m_no_frames){
+        m_current_texture = 0;
+        m_animation = false;
+        return true;
+    }
+    else{
+        m_current_texture = N;
+        return false;
+    }
+
 }
 
 void Character::draw(sf::RenderWindow &window)
