@@ -35,7 +35,7 @@ void showInstructions()
 void createWalls(std::vector<Wall*> &vectorWalls, b2World &world){
     // Create walls - static bodies
     vectorWalls.push_back(new Wall(600.f, 400.f, sf::Vector2f(120.f, 40.f), world));
-    vectorWalls.push_back(new Wall(670.f, 450.f, sf::Vector2f(40.f, 120.f), world));
+    vectorWalls.push_back(new Wall(670.f, 450.f, sf::Vector2f(120.f, 40.f), world));
     vectorWalls.push_back(new Wall(500.f, 500.f, sf::Vector2f(120.f, 40.f), world));
 
 

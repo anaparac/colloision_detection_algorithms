@@ -35,7 +35,7 @@ void SFMLDebugDraw::DrawSolidPolygon(const b2Vec2* vertices, int32 vertexCount, 
 
 	polygon.setOutlineThickness(-1.f);
     polygon.setFillColor(SFMLDebugDraw::GLColorToSFML(color, 60));
-    polygon.setOutlineColor(SFMLDebugDraw::GLColorToSFML(color));
+    polygon.setOutlineColor(sf::Color::Blue);
 
 	m_window->draw(polygon);
 }
@@ -63,7 +63,7 @@ void SFMLDebugDraw::DrawSolidCircle(const b2Vec2& center, float32 radius, const 
 	circle.setPosition(SFMLDebugDraw::B2VecToSFVec(center));
 	circle.setFillColor(SFMLDebugDraw::GLColorToSFML(color, 60));
 	circle.setOutlineThickness(1.f);
-	circle.setOutlineColor(SFMLDebugDraw::GLColorToSFML(color));
+	circle.setOutlineColor(sf::Color::Blue);
 
 	b2Vec2 endPoint = center + radius * axis;
 	sf::Vertex line[2] =

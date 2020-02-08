@@ -5,10 +5,8 @@ Wall::Wall(float x, float y, sf::Vector2f size, b2World& world)
     m_contacting = 0;
     m_size = size;
 
-    if(size.x>size.y)
-        m_texture.loadFromFile("wood.png");
-    else
-        m_texture.loadFromFile("wood1.png");
+    m_texture.loadFromFile("wood.png");
+    
 
     // Create body static box2D
     b2PolygonShape polygonShape;
