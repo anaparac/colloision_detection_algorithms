@@ -2,7 +2,7 @@
 
 Repozitorij za praktični dio diplomskog rada.
 
-#Simple shapes
+**Simple shapes**
 
 Tipke za iscrtavanje objekata:
 1 - kvadrat
@@ -13,7 +13,7 @@ Tipke za iscrtavanje objekata:
 * **A** - box2d iscrtavanje oblika
 * **B** - AABB
 
-#CCD (Continous Collision Detection)
+**CCD (Continous Collision Detection)**
 
 Tipke za iscrtavanje objekata:
 
@@ -24,7 +24,7 @@ Tipke za iscrtavanje objekata:
 * **A** - box2d iscrtavanje oblika
 * **B** - AABB
 
-#Nonconvex shapes
+**Nonconvex shapes**
 
 Tipke za kretanje
 * **left** - lijevo
