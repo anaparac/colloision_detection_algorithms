@@ -48,11 +48,11 @@ void createWalls(std::vector<Wall*> &vectorWalls, b2World &world){
 
 Player* createPlayers(std::vector<Player*> &vectorPlayer, b2World &world){
 
-    //najbolja pokrivenost(četiri poligona)
+    //covering with 4 convex polygons
     vectorPlayer.push_back(new Character1(100,100, world));
-    //dva poligona
+    //covering with 2 convex polygons 
     vectorPlayer.push_back(new Character2(150,100, world));
-    //jedan poligon
+    //covering with 1 convex polygons
     Character3* ch3 = new Character3(250,100, world);
     vectorPlayer.push_back(ch3);
     return ch3;
@@ -80,16 +80,17 @@ int main()
     tex.loadFromFile("bg4.png");
     BGtexture.push_back(sf::Texture(tex));
 
-    // Define world Box2D - Zero gravity
+    // Define world Box2D 
     b2World m_world(b2Vec2(0.f, 9.81f));
 
-    //collection for Wall
+    //collection for the floor and walls
     std::vector<Wall* > m_vectorWalls;
     //collections for players
     std::vector<Player* > m_vectorPlayer;
 
     createWalls(m_vectorWalls, m_world);
 
+    //active player
     Player* ch = createPlayers(m_vectorPlayer, m_world);
 
 
@@ -109,7 +110,7 @@ int main()
 
 
     sf::Time elapsedTime;
-    const float timePerFrame = 1.0 / 0.07;   //textures per millisecond
+    const float timePerFrame = 1.0 / 0.07; 
 
 
     while (m_window.isOpen())
@@ -173,7 +174,7 @@ int main()
 
 
 
-            //animacija
+            //anmate
             if(elapsedTime.asMilliseconds()>=timePerFrame){
                ch->setCurrTexture( (ch->getCurrTexture() + 1) % 10);
                elapsedTime = clock.restart();
@@ -197,7 +198,7 @@ int main()
         }
 
 
-        //objekti scene
+       
         // Draw Sprites
         for (int i = 0; i < m_vectorWalls.size(); i++)
             m_vectorWalls[i]->draw(m_window);
@@ -214,7 +215,7 @@ int main()
             if(contactPoint->state == b2_addState) debugDraw.DrawPoint(contactPoint->position, sf::Color::Cyan);
             else if(contactPoint->state == b2_persistState) debugDraw.DrawPoint(contactPoint->position, sf::Color::Red);
         }
-        ContactListenerInstance.m_pointCount = 0; //ukloni sve dosadasnje tocke kontakta
+        ContactListenerInstance.m_pointCount = 0; 
 
 
         m_window.display();

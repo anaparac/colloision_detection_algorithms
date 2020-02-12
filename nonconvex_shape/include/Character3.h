@@ -1,6 +1,6 @@
 #ifndef CHARACTER3_H
 #define CHARACTER3_H
-//bbox je jedan pravokutnik
+//Bbox is one rectangle
 #include "Player.h"
 
 class Character3 : public Player

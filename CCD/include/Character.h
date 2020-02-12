@@ -11,26 +11,26 @@ class Character : public Shape
         void draw(sf::RenderWindow &window);
         int getCurrTexture();
         void setCurrTexture(int idx);
-        // Podrška za animaciju
+        
         void startAnimation();
-        // Izvrši animaciju ako je pozvana metoda startAnimation()
+        // do the animation if startAnimation() is called
         bool animate(sf::Time dt);
         bool is_in_animation() const {return m_animation;};
 
     protected:
 
         sf::Sprite                   m_sprite;
-        std::vector<sf::Texture>     m_texture;     //vektor za slike
+        std::vector<sf::Texture>     m_texture;     
         int                          m_current_texture;
 
     private:
-        // Vrijeme od početka animacije
+        // start time (animation)
         sf::Time m_anim_time;
-        // Ukupno vrijeme animacije
+        // complete animation time (to render all frames)
         sf::Time m_total_time;
-        // Jesmo li u animaciji
+        
         bool m_animation;
-        // Broj sličica
+        //number of images
         int m_no_frames;
 };
 

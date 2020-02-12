@@ -2,7 +2,7 @@
 #define CONTACTLISTENER_H
 #include<Box2D/Box2D.h>
 
-//struktura za info o kontaktnim tockama
+//contact points info
 struct ContactPoint{
     b2Vec2 position;
     b2PointState state;

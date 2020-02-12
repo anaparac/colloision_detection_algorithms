@@ -57,7 +57,7 @@ void createShape(std::vector<Shape* > &vectorShapes, b2World &world, int numberS
 
     }
 
-    // Add shape -> mozda mogu ovo zamijeniti s iteriranjem po fixtureima i koristenjem userData
+
     vectorShapes.push_back(shape);
 
     // Initial move
@@ -123,7 +123,7 @@ void showInstructions()
     std::cout << " Draw rhombus      : Key 4"            << std::endl;
     std::cout << " Random movement   : Key space"        << std::endl << std::endl;
 
-    std::cout << " Debug draw        : Keys A, B";
+    std::cout << " Debug draw        : Keys A, B"	 << std::endl;
 }
 
 int main()

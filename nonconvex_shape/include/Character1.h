@@ -1,6 +1,6 @@
 #ifndef CHARACTER1_H
 #define CHARACTER1_H
-//BBox je samo jedan pravokutnik
+//BBox consists of 2 rectangles and 2 circles
 
 #include "Player.h"
 

@@ -18,38 +18,39 @@ private:
 public:
 	SFMLDebugDraw(sf::RenderWindow &window);
 
-    //funkcija za skaliranja OpenGL boja [0-1] u SFML [0-255]
+     //scale OpenGL colors [0-1] to SFML [0-255]
 	static sf::Color GLColorToSFML(const b2Color &color, sf::Uint8 alpha = 255)
 	{
         return sf::Color(color.r * 255, color.g * 255, color.b * 255, alpha);
 	}
 
-    //pretvara Box2d koordinate u pixel-e
+    ///scale Box2d coordinates to pixels
 	static sf::Vector2f B2VecToSFVec(const b2Vec2 &vector, bool scaleToPixels = true)
 	{
 		return sf::Vector2f(vector.x * (scaleToPixels ? sfdd::SCALE : 1.f), vector.y * (scaleToPixels ? sfdd::SCALE : 1.f));
 	}
 
-    // iscrta konveksni poligon zadan vektorom tocaka u smjeru CCW (bridovi)
+    // Draw a closed polygon provided by vector of points in CCW order.
 	void DrawPolygon(const b2Vec2* vertices, int32 vertexCount, const b2Color& color);
 
-    // iscrta konveksni poligon zadan vektorom tocaka u smjeru CCW
+    // Draw a solid closed polygon provided by vector of points in CCW order.
 	void DrawSolidPolygon(const b2Vec2* vertices, int32 vertexCount, const b2Color& color);
 
-    //kružnica
+    // Draw a circle.
 	void DrawCircle(const b2Vec2& center, float32 radius, const b2Color& color);
 
-    //krug
+    // Draw a solid circle.
 	void DrawSolidCircle(const b2Vec2& center, float32 radius, const b2Vec2& axis, const b2Color& color);
 
-    // iscrta duzinu zadanu dvjema tockama
+    // Line segment.
     void DrawSegment(const b2Vec2& p1, const b2Vec2& p2, const b2Color& color);
 
-
+    // Draw a transform.
     void DrawTransform(const b2Transform& xf);
 
-    //iscrta tocku sa zadanim (X,Y) koordinatama u world-u
+    //Draw point.
     void DrawPoint(const b2Vec2& p, sf::Color color);
 };
+
 
 #endif // SFMLDEBUGDRAW_H

@@ -25,7 +25,6 @@ Rectangle::Rectangle(float x, float y, sf::Vector2f size, b2World& world)
     fixtureDef.restitution	= 0.3f;
     fixtureDef.density	= 0.7f;
 
-    //m_body->SetUserData(this);
     m_body->CreateFixture(&fixtureDef);
 
 

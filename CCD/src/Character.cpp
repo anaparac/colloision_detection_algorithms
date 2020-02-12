@@ -1,12 +1,11 @@
 #include "../include/Character.h"
-#include <iostream>
 
 Character::Character(float x, float y, sf::Vector2f size, b2World& world)
 {
     // animacija
     m_animation = false;
     m_anim_time =sf::Time::Zero;
-    m_total_time = sf::seconds(1); // ukupno vrijeme animacije
+    m_total_time = sf::seconds(0.7); 
 
     m_name = "Character";
     m_size = size;
@@ -28,9 +27,10 @@ Character::Character(float x, float y, sf::Vector2f size, b2World& world)
     m_body->SetUserData(this);
     m_body->CreateFixture(&fixtureDef);
 
-
+	
     //ucitaj slike u vektor
     sf::Texture texture;
+    std::vector<sf::Texture> reversed;
     texture.loadFromFile("green_fire_1.png");
     m_texture.push_back(texture);
     texture.loadFromFile("green_fire_2.png");
@@ -44,9 +44,11 @@ Character::Character(float x, float y, sf::Vector2f size, b2World& world)
     texture.loadFromFile("green_fire_6.png");
     m_texture.push_back(texture);
 
+
     // Za anmimaciju
     m_no_frames = m_texture.size();
-    std::cout << "Broj sličica = " << m_no_frames << std::endl;
+	
+    
 }
 int Character::getCurrTexture(){
     return m_current_texture;
@@ -69,10 +71,10 @@ bool Character::animate(sf::Time dt)
     if(!m_animation) return false;
 
     float DT = m_total_time.asSeconds()/(m_no_frames+1);
-    //std::cout  << "DT = " << DT << "\n";
+    
     m_anim_time += dt;
     int N = std::floor(m_anim_time.asSeconds()/DT);
-//    std::cout  << "N = " << N << "\n";
+
     if(N == m_no_frames){
         m_current_texture = 0;
         m_animation = false;

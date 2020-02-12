@@ -64,7 +64,7 @@ void drawScene(sf::RenderWindow &window, b2World &world, std::vector<Shape* > ve
     for (int i = 0; i < vectorShapes.size(); i++)
         vectorShapes[i]->draw(window);
 
-    // draw shapes
+    // Draw shapes
     world.DrawDebugData();
     window.display();
 }
@@ -97,7 +97,7 @@ int main()
 
 
 
-    // Create walls - static bodies
+    //walls
     m_vectorShapes.push_back(new Wall(400.f, 600.f, sf::Vector2f(800.f, 1.f), m_world));
     m_vectorShapes.push_back(new Wall(600.f, 620.f, sf::Vector2f(110.f,165.f), m_world));
 
@@ -105,13 +105,6 @@ int main()
     Character* character = new Character(80.f, 500.f, sf::Vector2f(120.f, 200.f), m_world);
     m_vectorShapes.push_back(character);
 
-
-
-    //flags for animation
-    int prepare_shoot = 1;
-    int animate = 0;
-    int shoot = 0;
-    const float timePerFrame = 1.0 / 0.07;   //textures per millisecond
     sf::Time elapsedTime;
 
     while (m_window.isOpen())
@@ -128,14 +121,13 @@ int main()
 
             if ( event.type == sf::Event::KeyReleased )
             {
-                // Kreiraj dinamicnu metu
+                // dynamic target
                 if (event.key.code == sf::Keyboard::Num1)
                     createShape(m_vectorShapes, m_world, 1);
 
                 if (event.key.code == sf::Keyboard::Space){
                     if(!character->is_in_animation())
                         character->startAnimation();
-                 //   animate = 1;
                 }
 
 
@@ -154,31 +146,6 @@ int main()
                 }
 
             }
-
-
-//            //update animation
-//            if(animate){
-
-//                if(prepare_shoot){
-
-//                    if(elapsedTime.asMilliseconds()>=timePerFrame){
-//                        character->setCurrTexture( character->getCurrTexture() + 1 );
-//                        elapsedTime = clock.restart();
-//                    }
-//                    if(character->getCurrTexture()  == 5)    {prepare_shoot = 0; shoot = 1;}
-//                }
-
-//                if(shoot){ createShape(m_vectorShapes, m_world, 2); shoot = 0; }
-
-//                if(!prepare_shoot){
-//                    if(elapsedTime.asMilliseconds()>=timePerFrame){
-//                        character->setCurrTexture( character->getCurrTexture() - 1 );
-//                        elapsedTime = clock.restart();
-//                    }
-//                    if(character->getCurrTexture()  == 0)    {prepare_shoot = 1; animate = 0;}
-//                }
-//            }
-
 
         }
 

@@ -9,7 +9,7 @@ public:
 
    void BeginContact(b2Contact* contact) {
 
-     //provjeri jesu li objekti u kontaktu dinamicki -> samo dinamickima mijenjam boju
+     //only dynamic objects should change color
      auto tipA = contact->GetFixtureA()->GetBody()->GetType();
      auto tipB = contact->GetFixtureB()->GetBody()->GetType();
      if ( tipA == b2_dynamicBody ) {
@@ -23,7 +23,7 @@ public:
 
    void EndContact(b2Contact* contact) {
 
-       //provjeri jesu li objekti u kontaktu dinamicki
+       //only dynamic objects should change color
        auto tipA = contact->GetFixtureA()->GetBody()->GetType();
        auto tipB = contact->GetFixtureB()->GetBody()->GetType();
        if ( tipA == b2_dynamicBody ) {

@@ -14,14 +14,14 @@ Character2::Character2(float x, float y, b2World &world)
 
     m_body = world.CreateBody(&bodyDef);
 
-    //prvi fix
+    //fixture 1
     polygonShape.SetAsBox(50/2*MPP,40/2*MPP, b2Vec2( -15*MPP,-20*MPP),0);
     fixtureDef.shape = &polygonShape;
     fixtureDef.density = 0;
     fixtureDef.restitution = 0;
     fixtureDef.friction = 1;
     m_body->CreateFixture(&fixtureDef);
-    //drugi fix
+    //fixture 2
     polygonShape.SetAsBox(60/2*MPP, 45/2*MPP, b2Vec2( -40*MPP,20*MPP), 0 );
     fixtureDef.shape = &polygonShape;
     fixtureDef.density = 0;

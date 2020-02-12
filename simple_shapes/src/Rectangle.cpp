@@ -21,7 +21,7 @@ Rectangle::Rectangle(float x, float y, sf::Vector2f size, b2World& world)
     fixtureDef.restitution	= 0.3f;
     fixtureDef.density	= 0.7f;
 
-    //m_body->SetUserData(this);
+    
     m_body->CreateFixture(&fixtureDef);
 
 
@@ -37,9 +37,7 @@ void Rectangle::draw(sf::RenderWindow &window)
         m_shape.setPosition(position.x * PPM, position.y * PPM);
         m_shape.setRotation((angle * 180) / M_PI);
 
-        //if(m_contacting){ m_color = sf::Color::Red; }
-        //else{ m_color = m_color_spec; }
-
+        
         m_shape.setFillColor(m_color);
         m_shape.setSize(m_size);
         m_shape.setOrigin(m_size.x/2, m_size.y/2);

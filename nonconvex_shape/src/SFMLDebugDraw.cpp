@@ -3,7 +3,7 @@
 SFMLDebugDraw::SFMLDebugDraw(sf::RenderWindow &window) : m_window(&window) {}
 
 
-//neispunjeni, samo bridovi
+
 void SFMLDebugDraw::DrawPolygon(const b2Vec2* vertices, int32 vertexCount, const b2Color& color)
 {
 	sf::ConvexShape polygon(vertexCount);
@@ -88,7 +88,7 @@ void SFMLDebugDraw::DrawSegment(const b2Vec2& p1, const b2Vec2& p2, const b2Colo
 	m_window->draw(line, 2, sf::Lines);
 }
 
-//dvije normale smjera kretanja -> lokalni ks
+
 void SFMLDebugDraw::DrawTransform(const b2Transform& xf)
 {
     float lineLength = 0.5;
